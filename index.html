@@ -1,0 +1,402 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Saberfront Skillbase</title>
+<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.1/Chart.min.js"></script>
+<style>
+    @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,700);
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 25;
+  padding: 25;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background: #FCFCFC;
+}
+
+.content {
+  min-width: 1000px;
+  width: 60%;
+  max-width: 1200px;
+  height: 440px;
+  background: #222;
+  border-radius: 6px;
+  margin: 20px auto;
+  margin-bottom: 25px;
+}
+
+.stats {
+  height: 200px;
+}
+
+.col {
+  width: 33.33%;
+  height: 200px;
+  float: left;
+  padding: 10px;
+  position: relative;
+}
+
+.middle:before,
+.middle:after {
+  content: "";
+  height: 80%;
+  border: 1px solid #333;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.middle:before {
+  left: 0;
+}
+
+.middle:after {
+  right: 0;
+}
+
+.matchStats {
+  float: right;
+  width: 300px;
+  height: 240px;
+  position: relative;
+}
+
+#gameStats,
+#roleStats {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 20px;
+  margin: auto;
+}
+
+#champData {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -10px;
+  margin: auto;
+}
+
+#timeData {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.mainInfo {
+  height: 240px;
+  padding: 20px;
+  width: calc(100% - 600px);
+  float: left;
+}
+
+.mainInfo span {
+  color: #999;
+}
+
+.mainInfo .aboutMe {
+  font-size: 12px;
+  color: #999;
+}
+
+h1 {
+  color: #fff;
+  font-size: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+  color: #FDB45C;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+  margin-left: 5px;
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 10px;
+}
+
+h3 {
+  display: block;
+  font-size: 24px;
+  margin: 0;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  border-bottom: 2px solid #333;
+  color: #FDB45C;
+}
+
+.clearFix {
+  clear: both;
+}
+
+.playerStats {
+  margin: auto;
+  padding: 0;
+  list-style: none;
+  margin: 6px;
+}
+
+.playerStats li {
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+}
+
+.playerStats li span {
+  display: inline-block;
+  width: 60%;
+  color: #999;
+}
+
+.backgroundText {
+  width: 100%;
+  height: 100%;
+  font-size: 56px;
+  color: rgba(255, 255, 255, 0.2);
+  transform: rotate(-90deg);
+  text-transform: uppercase;
+  letter-spacing: 0px;
+  text-align: center;
+}
+
+.resizing {
+  position: relative;
+  width: 90%;
+  height: 100%;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 0;
+}
+</style>
+    <script src="angular.min.js"></script>
+    <script>
+        var SFApp = angular.module("SaberfrontSkills",[]);
+        SFApp.controller("SkillsController",function($scope){
+            $scope.SkillClasses = [
+                {
+                    name: "Ataru",
+                    description: "A form of lightsaber combat that can also utilize force attacks",
+                    combo: ["Force","Lightsaber"]
+                },
+                {
+                    name: "Force",
+                    
+                }
+                ];
+        });
+        SFApp.controller("PlayerController",function($scope){
+            $scope.Players = [
+                {
+                   gameStats : [
+  {
+    value: 300,
+    color:"#F7464A",
+    highlight: "#FF5A5E",
+    label: "5 v 5 Normal"
+  },
+  {
+    value: 50,
+    color: "#46BFBD",
+    highlight: "#5AD3D1",
+    label: "3 v 3 Normal"
+  },
+  {
+    value: 100,
+    color: "#FDB45C",
+    highlight: "#FFC870",
+    label: "3 v 3 Ranked"
+  },
+  {
+    value: 40,
+    color: "#949FB1",
+    highlight: "#A8B3C5",
+    label: "5 v 5 Ranked"
+  },
+  {
+    value: 120,
+    color: "#4D5360",
+    highlight: "#616774",
+    label: "Dominion"
+  }
+]
+                }
+                ];
+            
+$scope.ctx = window.document.getElementById("gameStats").getContext("2d");
+$scope.ctx.canvas.width = 180;
+$scope.ctx.canvas.height = 180;
+ $scope.myDoughnut = new Chart($scope.ctx).Doughnut($scope.Players[0].gameStats, {});
+
+ $scope.champData = {
+    labels: ["Fizz", "Garen", "Ashe", "Lee Sin"],
+    datasets: [
+        {
+            label: "Data",
+            fillColor: "rgba(220,220,220,0.5)",
+            strokeColor: "rgba(220,220,220,0.8)",
+            highlightFill: "rgba(220,220,220,0.75)",
+            highlightStroke: "rgba(220,220,220,1)",
+            data: [65, 59, 80, 81]
+        },
+        {
+            label: "Data 2",
+            fillColor: "rgba(151,187,205,0.5)",
+            strokeColor: "rgba(151,187,205,0.8)",
+            highlightFill: "rgba(151,187,205,0.75)",
+            highlightStroke: "rgba(151,187,205,1)",
+            data: [28, 48, 40, 19]
+        }
+    ]
+};
+$scope.ctx = document.getElementById("champData").getContext("2d");
+$scope.myBarChart = new Chart($scope.ctx).Bar($scope.champData, {responsive: true});
+
+ $scope.roleStats = [
+    {
+        value: 300,
+        color:"#F7464A",
+        highlight: "#FF5A5E",
+        label: "AP Mid"
+    },
+    {
+        value: 225,
+        color: "#46BFBD",
+        highlight: "#5AD3D1",
+        label: "Jungle"
+    },
+    {
+        value: 240,
+        color: "#FDB45C",
+        highlight: "#FFC870",
+        label: "AD Top"
+    },
+    {
+        value: 260,
+        color: "#949FB1",
+        highlight: "#A8B3C5",
+        label: "AD Mid"
+    },
+    {
+        value: 220,
+        color: "#4D5360",
+        highlight: "#616774",
+        label: "Support"
+    }
+];
+ $scope.ctx = document.getElementById("roleStats").getContext("2d");
+$scope.ctx.canvas.width = 180;
+$scope.ctx.canvas.height = 180;
+$scope.myPolarArea = new Chart($scope.ctx).PolarArea($scope.roleStats, {responsive: false});
+
+$scope.timeData = {
+    labels: ["January", "February", "March", "April", "May"],
+    datasets: [
+        {
+            label: "This Year",
+            fillColor: "rgba(220,220,220,0.2)",
+            strokeColor: "rgba(220,220,220,1)",
+            pointColor: "rgba(220,220,220,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: [65, 59, 80, 81, 56]
+        },
+        {
+            label: "Last Year",
+            fillColor: "rgba(151,187,205,0.2)",
+            strokeColor: "rgba(151,187,205,1)",
+            pointColor: "rgba(151,187,205,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(151,187,205,1)",
+            data: [28, 48, 40, 19, 86]
+        }
+    ]
+};
+ $scope.ctx = document.getElementById("timeData").getContext("2d");
+ $scope.myLineChart = new Chart($scope.ctx).Line($scope.timeData, {responsive: true});
+
+
+        });
+    </script>
+</head>
+<body ng-app="SaberfrontSkills">
+    <h1>Skillbase!</h1>
+    <div ng-controller="SkillsController" style="display: none;">
+        
+        <span class="skill-class-name" ng-repeat="skill in SkillClasses"><div class="col-sm-3">
+      <div class="input-group">
+        <span type="button" data-toggle="popover" class="input-group-addon btn btn-primary active" data-placement="top" id="form-class">{{skill.name}}</span>
+        <input id="class" readonly type="text" class="form-control classInput" placeholder="{{skill.description}}" aria-describedby="form-class">
+      </div>
+    </div></span>
+    
+    </div>
+    <div ng-controller="PlayerController">
+        <div class="content">
+  <div class="mainInfo">
+    <h1>Ruddy2007</h1>
+    <span>Europe West</span>
+    <div class="aboutMe">
+      <h3>About</h3>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fringilla felis non tellus faucibus tempor. Maecenas mollis pellentesque nisl, nec tincidunt sem placerat ut. Aliquam vel consectetur augue. Suspendisse efficitur faucibus ipsum, in laoreet eros tincidunt ac. Pellentesque interdum nisl eget erat pulvinar.
+    </div>
+  </div>
+  <div class="matchStats">
+    <div class="backgroundText">Games</div>
+    <canvas id="gameStats" width="180" height="180"/>
+  </div>
+
+  <div class="matchStats">
+    <div class="backgroundText">Roles</div>
+    <canvas id="roleStats" width="180" height="180"/>
+  </div>
+
+  <div class="clearFix"></div>
+
+  <div class="col">
+    <h2>Favourite Champion</h2>
+    <div class="resizing">
+      <canvas id="champData"/>
+    </div>
+  </div>
+  <div class="col middle">
+    <h2>Time Played</h2>
+    <div class="resizing">
+      <canvas id="timeData"/>
+    </div>
+  </div>
+  <div class="col">
+    <h2>Stats</h2>
+    <ul class="playerStats">
+      <li><span>Champions Kills:</span> 11,234</li>
+      <li><span>Overall K/D:</span> 8.45</li>
+      <li><span>Minion Kills:</span> 345,428</li>
+      <li><span>Turrents Destroyed:</span> 2,350</li>
+      <li><span>Gold Collected:</span> 2,486,934</li>
+    </ul>
+  </div>
+</div>
+    </div>
+</body>
+</html>

@@ -194,6 +194,66 @@ h3 {
   bottom: 0;
 }
 </style>
+    
+</head>
+<body ng-app="SaberfrontSkills">
+    <h1>Skillbase!</h1>
+    <div ng-controller="SkillsController" style="display: none;">
+        
+        <span class="skill-class-name" ng-repeat="skill in SkillClasses"><div class="col-sm-3">
+      <div class="input-group">
+        <span type="button" data-toggle="popover" class="input-group-addon btn btn-primary active" data-placement="top" id="form-class">{{skill.name}}</span>
+        <input id="class" readonly type="text" class="form-control classInput" placeholder="{{skill.description}}" aria-describedby="form-class">
+      </div>
+    </div></span>
+    
+    </div>
+    <div ng-controller="PlayerController">
+        <div class="content">
+  <div class="mainInfo">
+    <h1>Ruddy2007</h1>
+    <span>Europe West</span>
+    <div class="aboutMe">
+      <h3>About</h3>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fringilla felis non tellus faucibus tempor. Maecenas mollis pellentesque nisl, nec tincidunt sem placerat ut. Aliquam vel consectetur augue. Suspendisse efficitur faucibus ipsum, in laoreet eros tincidunt ac. Pellentesque interdum nisl eget erat pulvinar.
+    </div>
+  </div>
+  <div class="matchStats">
+    <div class="backgroundText">Games</div>
+    <canvas id="gameStats" width="180" height="180"/>
+  </div>
+
+  <div class="matchStats">
+    <div class="backgroundText">Roles</div>
+    <canvas id="roleStats" width="180" height="180"/>
+  </div>
+
+  <div class="clearFix"></div>
+
+  <div class="col">
+    <h2>Favourite Champion</h2>
+    <div class="resizing">
+      <canvas id="champData"/>
+    </div>
+  </div>
+  <div class="col middle">
+    <h2>Time Played</h2>
+    <div class="resizing">
+      <canvas id="timeData"/>
+    </div>
+  </div>
+  <div class="col">
+    <h2>Stats</h2>
+    <ul class="playerStats">
+      <li><span>Champions Kills:</span> 11,234</li>
+      <li><span>Overall K/D:</span> 8.45</li>
+      <li><span>Minion Kills:</span> 345,428</li>
+      <li><span>Turrents Destroyed:</span> 2,350</li>
+      <li><span>Gold Collected:</span> 2,486,934</li>
+    </ul>
+  </div>
+</div>
+    </div>
     <script src="angular.min.js"></script>
     <script src="angularfire.min.js"></script>
     <script>
@@ -347,64 +407,5 @@ $scope.timeData = {
 
         });
     </script>
-</head>
-<body ng-app="SaberfrontSkills">
-    <h1>Skillbase!</h1>
-    <div ng-controller="SkillsController" style="display: none;">
-        
-        <span class="skill-class-name" ng-repeat="skill in SkillClasses"><div class="col-sm-3">
-      <div class="input-group">
-        <span type="button" data-toggle="popover" class="input-group-addon btn btn-primary active" data-placement="top" id="form-class">{{skill.name}}</span>
-        <input id="class" readonly type="text" class="form-control classInput" placeholder="{{skill.description}}" aria-describedby="form-class">
-      </div>
-    </div></span>
-    
-    </div>
-    <div ng-controller="PlayerController">
-        <div class="content">
-  <div class="mainInfo">
-    <h1>Ruddy2007</h1>
-    <span>Europe West</span>
-    <div class="aboutMe">
-      <h3>About</h3>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fringilla felis non tellus faucibus tempor. Maecenas mollis pellentesque nisl, nec tincidunt sem placerat ut. Aliquam vel consectetur augue. Suspendisse efficitur faucibus ipsum, in laoreet eros tincidunt ac. Pellentesque interdum nisl eget erat pulvinar.
-    </div>
-  </div>
-  <div class="matchStats">
-    <div class="backgroundText">Games</div>
-    <canvas id="gameStats" width="180" height="180"/>
-  </div>
-
-  <div class="matchStats">
-    <div class="backgroundText">Roles</div>
-    <canvas id="roleStats" width="180" height="180"/>
-  </div>
-
-  <div class="clearFix"></div>
-
-  <div class="col">
-    <h2>Favourite Champion</h2>
-    <div class="resizing">
-      <canvas id="champData"/>
-    </div>
-  </div>
-  <div class="col middle">
-    <h2>Time Played</h2>
-    <div class="resizing">
-      <canvas id="timeData"/>
-    </div>
-  </div>
-  <div class="col">
-    <h2>Stats</h2>
-    <ul class="playerStats">
-      <li><span>Champions Kills:</span> 11,234</li>
-      <li><span>Overall K/D:</span> 8.45</li>
-      <li><span>Minion Kills:</span> 345,428</li>
-      <li><span>Turrents Destroyed:</span> 2,350</li>
-      <li><span>Gold Collected:</span> 2,486,934</li>
-    </ul>
-  </div>
-</div>
-    </div>
 </body>
 </html>

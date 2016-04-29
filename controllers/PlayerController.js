@@ -1,7 +1,7 @@
 SFApp.controller("PlayerController",function($scope,$firebaseAuth,$routeParams){
 		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 		var auth = $firebaseAuth(ref);
-		    $scope.Name = window.PlayerNames[$routeParams.id];
+		    $scope.playerName = window.PlayerNames[$routeParams.id];
             $scope.Players = [
                 {
                    gameStats : [

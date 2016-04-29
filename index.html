@@ -256,8 +256,18 @@ h3 {
     </div>
     <script src="angular.min.js"></script>
     <script src="angularfire.min.js"></script>
+    <script src="angular-route.js"></script>
     <script>
-        var SFApp = angular.module("SaberfrontSkills",["firebase"]);
+        var SFApp = angular.module("SaberfrontSkills",["firebase","ngRoute"]);
+        SFApp.config(function ($routeProvider) { 
+  $routeProvider 
+    .when('/', { 
+      controller: ''
+    }) 
+    .otherwise({ 
+      redirectTo: '/' 
+    }); 
+});
         SFApp.controller("SkillsController",function($scope){
             $scope.SkillClasses = [
                 {
@@ -271,8 +281,10 @@ h3 {
                 }
                 ];
         });
-        SFApp.controller("PlayerController",function($scope,$firebaseAuth){
+           SFApp.controller("PlayerController",function($scope,$firebaseAuth,$routeParams){
 		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
+		var auth = $firebaseAuth(ref);
+		    $scope.Name = window.PlayerNames[$routeParams.id];
             $scope.Players = [
                 {
                    gameStats : [

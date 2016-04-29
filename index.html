@@ -4,6 +4,13 @@
 <title>Saberfront Skillbase</title>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.1/Chart.min.js"></script>
+
+<!-- Firebase -->
+<script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+<!-- AngularFire -->
+<script src="https://cdn.firebase.com/libs/angularfire/1.2.0/angularfire.min.js"></script>
+NPM, BOWER, AND YEOMAN SUPPORT
+
 <style>
     @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,700);
 * {
@@ -190,7 +197,7 @@ h3 {
 </style>
     <script src="angular.min.js"></script>
     <script>
-        var SFApp = angular.module("SaberfrontSkills",[]);
+        var SFApp = angular.module("SaberfrontSkills",["firebase"]);
         SFApp.controller("SkillsController",function($scope){
             $scope.SkillClasses = [
                 {
@@ -397,9 +404,6 @@ $scope.timeData = {
     </ul>
   </div>
 </div>
-    </div>
-    <div class="privacy">
-        <a href="privacy.html">Privacy Policy</a>
     </div>
 </body>
 </html>

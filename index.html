@@ -213,11 +213,11 @@ h3 {
   $routeProvider 
     .when('/:id', { 
       controller: 'PlayerController',
-      template: 'views/players.html'
+      templateUrl: 'views/players.html'
     }) 
      .when('/skills',{
         controller: 'SkillsController',
-        template: 'views/skills.html'
+        templateUrl: 'views/skills.html'
     })
     .otherwise({ 
       redirectTo: '/' 

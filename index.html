@@ -211,7 +211,7 @@ h3 {
         var SFApp = angular.module("SaberfrontSkills",["firebase","ngRoute"]);
         SFApp.config(function ($routeProvider) { 
   $routeProvider 
-    .when('/:id', { 
+    .when('/Player/:id', { 
       controller: 'PlayerController',
       templateUrl: 'views/players.html'
     }) 

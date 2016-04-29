@@ -1,13 +1,17 @@
-SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray,$firebaseObject,$routeParams){
+SFApp.controller("PlayerController",function($scope,$firebaseAuth,$routeParams){
 		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 		var auth = $firebaseAuth(ref);
 		auth.$authWithOAuthPopup("google").then(function(authData) {
 				$scope.data = $firebaseObject(ref);
-        if($scope.data.child("Players") == null){
+        if(ref.child("Players") == null){
         
         	console.log("Players list null");
-        	
+        }else{
+        	ref.child("Players").$add({
+        		name: authData.displayName
+        	})
         }
+       
   }).catch(function(error) {
     console.log("Authentication failed:", error);
   });

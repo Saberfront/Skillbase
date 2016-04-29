@@ -211,7 +211,7 @@ h3 {
     <div ng-controller="PlayerController">
         <div class="content">
   <div class="mainInfo">
-    <h1>Ruddy2007</h1>
+    <h1>{{Name}}</h1>
     <span>Europe West</span>
     <div class="aboutMe">
       <h3>About</h3>
@@ -258,6 +258,10 @@ h3 {
     <script src="angularfire.min.js"></script>
     <script src="angular-route.js"></script>
     <script>
+    Window.PlayerNames = [
+    	"Aerodos12",
+    	"SaberfrontRBLX"
+    	]
         var SFApp = angular.module("SaberfrontSkills",["firebase","ngRoute"]);
         SFApp.config(function ($routeProvider) { 
   $routeProvider 

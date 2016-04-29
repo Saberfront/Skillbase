@@ -1,9 +1,9 @@
 
         
-        <span class="skill-class-name" ng-repeat="skill in SkillClasses"><div class="col-sm-3">
+        <span class="skill-class-name" ><div class="col-sm-3">
       <div class="input-group">
-        <span type="button" data-toggle="popover" class="input-group-addon btn btn-primary active" data-placement="top" id="form-class">{{skill.name}}</span>
-        <input id="class" readonly type="text" class="form-control classInput" placeholder="{{skill.description}}" aria-describedby="form-class">
+        <span type="button" data-toggle="popover" class="input-group-addon btn btn-primary active" data-placement="top" id="form-class">{{currentSkill.name}}</span>
+        <input id="class" readonly type="text" class="form-control classInput" placeholder="{{currentSkill.description}}" aria-describedby="form-class">
       </div>
     </div></span>
     

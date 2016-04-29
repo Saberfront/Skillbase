@@ -1,4 +1,4 @@
-   SFApp.controller("SkillsController",function($scope){
+   SFApp.controller("SkillsController",function($scope,$routeParams){
             $scope.SkillClasses = [
                 {
                     name: "Ataru",
@@ -10,4 +10,5 @@
                     
                 }
                 ];
+                $scope.currentMove = $scope.SkillClasses[$routeParams.id];
         });

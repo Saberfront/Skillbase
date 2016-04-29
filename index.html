@@ -221,12 +221,18 @@ h3 {
         var SFApp = angular.module("SaberfrontSkills",["firebase","ngRoute"]);
         SFApp.config(function ($routeProvider) { 
   $routeProvider 
-    .when('/', { 
-      controller: ''
+    .when('/:id', { 
+      controller: 'PlayerController',
+      template: 'views/players.html'
     }) 
+     .when('/skills',{
+        controller: 'SkillsController',
+        template: 'views/skills.html'
+    })
     .otherwise({ 
       redirectTo: '/' 
-    }); 
+    });
+   
 });
         SFApp.controller("SkillsController",function($scope){
             $scope.SkillClasses = [

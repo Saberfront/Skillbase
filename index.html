@@ -199,17 +199,7 @@ h3 {
 <body ng-app="SaberfrontSkills">
     <h1>Skillbase!</h1>
     <div ng-view></div>
-    <div ng-controller="SkillsController" style="display: none;">
-        
-        <span class="skill-class-name" ng-repeat="skill in SkillClasses"><div class="col-sm-3">
-      <div class="input-group">
-        <span type="button" data-toggle="popover" class="input-group-addon btn btn-primary active" data-placement="top" id="form-class">{{skill.name}}</span>
-        <input id="class" readonly type="text" class="form-control classInput" placeholder="{{skill.description}}" aria-describedby="form-class">
-      </div>
-    </div></span>
     
-    </div>
-    </div>
     <script src="angular.min.js"></script>
     <script src="angularfire.min.js"></script>
     <script src="angular-route.js"></script>
@@ -234,23 +224,15 @@ h3 {
     });
    
 });
-        SFApp.controller("SkillsController",function($scope){
-            $scope.SkillClasses = [
-                {
-                    name: "Ataru",
-                    description: "A form of lightsaber combat that can also utilize force attacks",
-                    combo: ["Force","Lightsaber"]
-                },
-                {
-                    name: "Force",
-                    
-                }
-                ];
-        });
+     
            
     </script>
     
     <script src="controllers/PlayerController.js">
+    
+    </script>
+    
+    <script src="controllers/SkillsController.js">
     
     </script>
 </body>

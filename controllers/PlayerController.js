@@ -17,7 +17,7 @@ console.log("User added"); // returns location in the array
   }).catch(function(error) {
     console.log("Authentication failed:", error);
   });
-		    $scope.playerName = window.PlayerNames[$routeParams.id];
+		    $scope.playerName = Players[$routeParams.id].name;
             $scope.Players = [
                 {
                    gameStats : [

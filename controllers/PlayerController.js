@@ -8,7 +8,7 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
         	console.log("Players list null");
         }else{
         	Players.$add({
-        		name: authData.displayName
+        		name: authData.google.displayName
         	}).then(function(ref) {
   var id = ref.key();
   console.log("added record with id " + id);

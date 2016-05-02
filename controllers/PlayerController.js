@@ -7,7 +7,7 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
         
         	console.log("Players list null");
         }else{
-        	Players.add({
+        	Players.$add({
         		name: authData.displayName
         	})
         }

@@ -6,7 +6,7 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$routeParams){
         
         	console.log("Players list null");
         }else{
-        	ref.child("Players").push({
+        	ref.child("Players")[ref.child("Players").length - 1].push({
         		name: authData.displayName
         	})
         }

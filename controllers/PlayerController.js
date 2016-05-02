@@ -7,11 +7,14 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
         
         	console.log("Players list null");
         }else{
-        	Players.$add({
+        	var  dat = {
         		name: authData.google.displayName
-        	}).then(function(ref) {
+        	};
+        	if(Players.indexOf(dat) == -1){
+        	Players.$add(dat).then(function(ref) {
 console.log("User added"); // returns location in the array
 });
+        }
         }
        
   }).catch(function(error) {

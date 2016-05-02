@@ -15,12 +15,13 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
 console.log("User added"); // returns location in the array
 });
         }
+        		    $scope.playerName = Players[Players.indexOf(dat)].name;
+
         }
        
   }).catch(function(error) {
     console.log("Authentication failed:", error);
   });
-		    $scope.playerName = Players[$routeParams.id].name;
             $scope.Players = [
                 {
                    gameStats : [

@@ -10,8 +10,7 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
         	Players.$add({
         		name: authData.google.displayName
         	}).then(function(ref) {
-  console.log("added record with id " + id);
- // returns location in the array
+console.log("User added"); // returns location in the array
 });
         }
        

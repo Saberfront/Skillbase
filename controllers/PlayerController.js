@@ -1,12 +1,13 @@
-SFApp.controller("PlayerController",function($scope,$firebaseAuth,$routeParams){
+SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray,$routeParams){
 		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 		var auth = $firebaseAuth(ref);
+		var Players = $firebaseArray(ref.child("Players"))
 		auth.$authWithOAuthPopup("google").then(function(authData) {
-        if(ref.child("Players") == null){
+        if(Players == null){
         
         	console.log("Players list null");
         }else{
-        	ref.child("Players").push({
+        	Players.add({
         		name: authData.displayName
         	})
         }

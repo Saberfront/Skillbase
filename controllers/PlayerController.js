@@ -10,12 +10,12 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
         	var  dat = {
         		name: authData.google.displayName
         	};
-        	if(Players.indexOf(dat) == -1){
+        	if(Players.$indexFor(dat) == -1){
         	Players.$add(dat).then(function(ref) {
 console.log("User added"); // returns location in the array
 });
         }
-        		    $scope.playerName = Players[Players.indexOf(dat)].name;
+        		    $scope.playerName = Players[Players.$indexFor(dat)].name;
 
         }
        

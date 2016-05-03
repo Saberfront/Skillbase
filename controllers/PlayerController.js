@@ -20,8 +20,8 @@ console.log("User added"); // returns location in the array
 	$obj = $firebaseObject($scope.player);
 	$obj.$bindTo($scope.player, "data").then(function() {
   console.log($scope.data); // { foo: "bar" }
-  $scope.data.name = "baz";  // will be saved to the database
-  ref.set({ foo: "baz" });  // this would update the database and $scope.data
+  $scope.playerName = $scope.data.name;  // will be saved to the database
+    // this would update the database and $scope.data
 });
 }
         }

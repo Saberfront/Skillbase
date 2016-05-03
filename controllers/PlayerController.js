@@ -12,7 +12,7 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
         	};
         	if(Players.$indexFor(dat) == -1){
         		        		    $scope.player = Players.$getRecord(Players.$keyAt(Players.$indexFor(dat)));
-if (!$scope.playerName){
+if (!$scope.player){
         	Players.$add(dat).then(function(ref) {
 console.log("User added"); // returns location in the array
 });

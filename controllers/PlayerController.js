@@ -15,7 +15,7 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
 console.log("User added"); // returns location in the array
 });
         }
-        		    $scope.playerName = Players.$getRecord(Players.$keyAt(Players.$indexFor(dat)).name;
+        		    $scope.playerName = Players.$getRecord(Players.$keyAt(Players.$indexFor(dat))).name;
 
         }
        

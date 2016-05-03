@@ -17,7 +17,12 @@ if (!$scope.playerName){
 console.log("User added"); // returns location in the array
 });
 }else{
-	$obj = $firebaseObject($scope.player)
+	$obj = $firebaseObject($scope.player);
+	$obj.$bindTo($scope.player, "data").then(function() {
+  console.log($scope.data); // { foo: "bar" }
+  $scope.data.name = "baz";  // will be saved to the database
+  ref.set({ foo: "baz" });  // this would update the database and $scope.data
+});
 }
         }
 

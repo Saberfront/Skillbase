@@ -1,4 +1,4 @@
-SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray,$routeParams){
+SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray,$firebaseObject,$routeParams){
 		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 		var auth = $firebaseAuth(ref);
 		var Players = $firebaseArray(ref.child("Players"))
@@ -11,11 +11,13 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
         		name: authData.google.displayName
         	};
         	if(Players.$indexFor(dat) == -1){
-        		        		    $scope.playerName = Players.$getRecord(Players.$keyAt(Players.$indexFor(dat))).name;
+        		        		    $scope.player = Players.$getRecord(Players.$keyAt(Players.$indexFor(dat)));
 if (!$scope.playerName){
         	Players.$add(dat).then(function(ref) {
 console.log("User added"); // returns location in the array
 });
+}else{
+	$obj = $firebaseObject($scope.player)
 }
         }
 

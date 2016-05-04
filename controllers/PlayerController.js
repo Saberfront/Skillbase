@@ -11,7 +11,7 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
         		name: authData.google.displayName
         	};
         	if(Players.$indexFor($scope.dat) == -1){
-        		        		    $scope.player = Players.$getRecord(Players.$keyAt(Players.$indexFor(dat)));
+        		        		    $scope.player = Players.$getRecord(Players.$keyAt(Players.$indexFor($scope.dat)));
 if (!$scope.player){
         	Players.$add($scope.dat).then(function(ref) {
 console.log("User added"); // returns location in the array

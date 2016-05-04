@@ -8,32 +8,8 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
         	console.log("Players list null");
         }else{
         	$scope.dat = {
-        		name: authData.google.displayName
-        	};
-        	if(Players.$indexFor($scope.dat) == -1){
-        		        		    $scope.player = Players.$getRecord(Players.$keyAt(Players.$indexFor($scope.dat)));
-if (!$scope.player){
-        	Players.$add($scope.dat).then(function(ref) {
-console.log("User added"); // returns location in the array
-});
-}else{
-	$obj = $firebaseObject($scope.player);
-	$obj.$bindTo($scope.player, "data").then(function() {
-  console.log($scope.data); // { foo: "bar" }
-  $scope.playerName = $scope.data.name;  // will be saved to the database
-    // this would update the database and $scope.data
-});
-}
-        }
-
-        }
-       
-  }).catch(function(error) {
-    console.log("Authentication failed:", error);
-  });
-            $scope.Players = [
-                {
-                   gameStats : [
+        		name: authData.google.displayName,
+        		 gameStats : [
   {
     value: 300,
     color:"#F7464A",
@@ -65,13 +41,38 @@ console.log("User added"); // returns location in the array
     label: "Dominion"
   }
 ]
+        	};
+        	if(Players.$indexFor($scope.dat) == -1){
+        		        		    $scope.player = Players.$getRecord(Players.$keyAt(Players.$indexFor($scope.dat)));
+if (!$scope.player){
+        	Players.$add($scope.dat).then(function(ref) {
+console.log("User added"); // returns location in the array
+});
+}else{
+	$obj = $firebaseObject($scope.player);
+	$obj.$bindTo($scope.player, "data").then(function() {
+  console.log($scope.data); // { foo: "bar" }
+  $scope.playerName = $scope.data.name;  // will be saved to the database
+    // this would update the database and $scope.data
+});
+}
+        }
+
+        }
+       
+  }).catch(function(error) {
+    console.log("Authentication failed:", error);
+  });
+            $scope.Players = [
+                {
+                  
                 }
                 ];
             
 $scope.ctx = window.document.getElementById("gameStats").getContext("2d");
 $scope.ctx.canvas.width = 180;
 $scope.ctx.canvas.height = 180;
- $scope.myDoughnut = new Chart($scope.ctx).Doughnut($scope.Players[0].gameStats, {});
+ $scope.myDoughnut = new Chart($scope.ctx).Doughnut($scope.dat.gameStats, {});
 
  $scope.champData = {
     labels: ["Fizz", "Garen", "Ashe", "Lee Sin"],

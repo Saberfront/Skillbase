@@ -8,8 +8,7 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
         	console.log("Players list null");
         }else{
         	$scope.dat = {
-        		name: authData.google.displayName,
-        	
+        		name: authData.google.displayName
         	};
         	if(Players.$indexFor($scope.dat) == -1){
         		        		    $scope.player = Players.$getRecord(Players.$keyAt(Players.$indexFor($scope.dat)));

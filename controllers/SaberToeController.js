@@ -1,5 +1,13 @@
-SFApp.controller('SaberToeController', function($scope) {
-  
+SFApp.controller('SaberToeController', function($scope,$firebaseAuth,$firebaseArray,$firebaseObject,$routeParams){
+		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
+		var auth = $firebaseAuth(ref);
+		var Players = $firebaseArray(ref.child("Players"))
+		auth.$authWithOAuthPopup("google").then(function(authData) {
+      
+      
+        		        		    $scope.dat = Players.$getRecord(Players.$keyAt(Players.$indexFor($scope.dat)));
+
+});
   
   
   $scope.sides = {
@@ -58,6 +66,7 @@ SFApp.controller('SaberToeController', function($scope) {
        ($scope.board[0][0] === $scope.board[1][1] && $scope.board[1][1] === $scope.board[2][2] && $scope.board[0][0] !== '0') ||
        ($scope.board[0][2] === $scope.board[1][1] && $scope.board[1][1] === $scope.board[2][0] && $scope.board[0][2] !== '0')) {
       console.log('You win!');
+      $scope.dat.wins += 1;
       $scope.isWin = true;
     }
   };

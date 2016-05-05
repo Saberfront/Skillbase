@@ -9,7 +9,32 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
         }else{
         	$scope.dat = {
         		name: authData.google.displayName,
-        		 gameStats : [
+        	
+        	};
+        	if(Players.$indexFor($scope.dat) == -1){
+        		        		    $scope.player = Players.$getRecord(Players.$keyAt(Players.$indexFor($scope.dat)));
+if (!$scope.player){
+        	Players.$add($scope.dat).then(function(ref) {
+console.log("User added"); // returns location in the array
+});
+}else{
+	$obj = $firebaseObject($scope.player);
+	$obj.$bindTo($scope.player, "data").then(function() {
+  console.log($scope.data); // { foo: "bar" }
+  $scope.playerName = $scope.data.name;  // will be saved to the database
+    // this would update the database and $scope.data
+});
+}
+        }
+
+        }
+       
+  }).catch(function(error) {
+    console.log("Authentication failed:", error);
+  });
+            $scope.Players = [
+                {
+                  	 gameStats : [
   {
     value: 300,
     color:"#F7464A",
@@ -41,31 +66,6 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
     label: "Dominion"
   }
 ]
-        	};
-        	if(Players.$indexFor($scope.dat) == -1){
-        		        		    $scope.player = Players.$getRecord(Players.$keyAt(Players.$indexFor($scope.dat)));
-if (!$scope.player){
-        	Players.$add($scope.dat).then(function(ref) {
-console.log("User added"); // returns location in the array
-});
-}else{
-	$obj = $firebaseObject($scope.player);
-	$obj.$bindTo($scope.player, "data").then(function() {
-  console.log($scope.data); // { foo: "bar" }
-  $scope.playerName = $scope.data.name;  // will be saved to the database
-    // this would update the database and $scope.data
-});
-}
-        }
-
-        }
-       
-  }).catch(function(error) {
-    console.log("Authentication failed:", error);
-  });
-            $scope.Players = [
-                {
-                  
                 }
                 ];
             

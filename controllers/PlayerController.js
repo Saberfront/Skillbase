@@ -71,7 +71,7 @@ console.log("User added"); // returns location in the array
 $scope.ctx = window.document.getElementById("gameStats").getContext("2d");
 $scope.ctx.canvas.width = 180;
 $scope.ctx.canvas.height = 180;
- $scope.myDoughnut = new Chart($scope.ctx).Doughnut($scope.dat.gameStats, {});
+ $scope.myDoughnut = new Chart($scope.ctx).Doughnut($scope.Players[0].gameStats, {});
 
  $scope.champData = {
     labels: ["Fizz", "Garen", "Ashe", "Lee Sin"],

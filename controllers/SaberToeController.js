@@ -1,4 +1,4 @@
-SFApp.controller('swtController', function($scope) {
+SFApp.controller('SaberToeController', function($scope) {
   
   
   

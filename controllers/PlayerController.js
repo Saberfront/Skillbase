@@ -9,7 +9,8 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
         }else{
         	$scope.dat = {
         		name: authData.google.displayName,
-        		about: "Lorum Ipsum Dolor"
+        		about: "Lorum Ipsum Dolor",
+        		wins: 0
         	};
         	if(Players.$indexFor($scope.dat) == -1){
         		        		    $scope.player = Players.$getRecord(Players.$keyAt(Players.$indexFor($scope.dat)));

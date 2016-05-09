@@ -17,7 +17,11 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
         		        		    $scope.player = Players.$getRecord(Players.$keyAt(Players.$indexFor($scope.dat)));
 if (!$scope.player){
         	Players.$add($scope.dat).then(function(ref) {
+        	Players.$save(Players.$indexFor($scope.dat)).then(function(ref){
+        		console.log("user saved");
+        	});
 console.log("User added"); // returns location in the array
+
 });
 }else{
 	$obj = $firebaseObject($scope.player);

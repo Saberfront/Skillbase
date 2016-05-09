@@ -20,6 +20,7 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
         	if(Players.$indexFor($scope.player) == -1){
 if (!$scope.player){
         	Players.$add($scope.dat).then(function(ref) {
+        		 ref.key() === obj.$id === authData.uid; 
         	Players.$save(Players.$indexFor($scope.dat)).then(function(ref){
         		console.log("user saved");
         	});

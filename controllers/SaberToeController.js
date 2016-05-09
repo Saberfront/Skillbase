@@ -2,12 +2,10 @@ SFApp.controller('SaberToeController', function($scope,$firebaseAuth,$firebaseAr
 		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 		var auth = $firebaseAuth(ref);
 		var Players = $firebaseArray(ref.child("Players"))
-		auth.$authWithOAuthPopup("google").then(function(authData) {
-      
-      
-        		        		    $scope.dat = Players.$getRecord(Players.$keyAt(Players.$indexFor($scope.dat)));
+	/*	auth.$authWithOAuthPopup("google").then(function(authData) {
+      *		        		    $scope.dat = Players.$getRecord(Players.$keyAt(Players.$indexFor($scope.dat)));
 
-});
+}); */
   
   
   $scope.sides = {

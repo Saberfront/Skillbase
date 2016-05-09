@@ -4,17 +4,18 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
 		var auth = $firebaseAuth(ref2);
 		var Players = $firebaseArray(ref);
 		auth.$authWithOAuthPopup("google").then(function(authData) {
+				$scope.dat = {
+        		name: authData.google.displayName,
+        		about: "Lorum Ipsum Dolor",
+        		wins: 0
+        	};
+        
 			         $scope.player = Players.$getRecord(Players.$keyAt(Players.$indexFor($scope.dat)));
 
         if(Players == null){
         
         	console.log("Players list null");
         }else{
-        	$scope.dat = {
-        		name: authData.google.displayName,
-        		about: "Lorum Ipsum Dolor",
-        		wins: 0
-        	};
         	if(Players.$indexFor($scope.player) == -1){
 if (!$scope.player){
         	Players.$add($scope.dat).then(function(ref) {

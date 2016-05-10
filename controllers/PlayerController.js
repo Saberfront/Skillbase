@@ -1,43 +1,13 @@
-SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray,$firebaseObject,$routeParams){
-		var ref = new Firebase("saberfront-skillbase.firebaseio.com/Players");
-		var ref2 = new Firebase("saberfront-skillbase.firebaseio.com");
-		var auth = $firebaseAuth(ref2);
-		var Players = $firebaseArray(ref);
-		$scope.login = function(){
+SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray,$routeParams){
+		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
+		var auth = $firebaseAuth(ref);
+		var Players = $firebaseArray(ref.child("Players"))
 		auth.$authWithPassword({
-			username: $scope.em,
-			password: $scope.pass
-		}).then(function(authData) {
-			$scope.dat = {
-				about: "Lorum Ipsum",
-				wins: 0
-			};
-        
-			         $scope.player = Players.$getRecord(authData.uid);
-
-        if(Players == null){
-        
-        	console.log("Players list null");
-        }else{
-        	if(Players.$indexFor($scope.player) == -1){
-if (!$scope.player){
-        	Players.$add($scope.dat).then(function(ref) {
-        		 ref.key() === authData.uid; 
-        	Players.$save(Players.$indexFor($scope.dat)).then(function(ref){
-        		console.log("user saved");
-        	});
-console.log("User added"); // returns location in the array
-
-});
-}
-        }
-
-        }
-       
- 
-            $scope.Players = [
+		 username: $scope.em,
+		 password: $scope.pass
+		}).then(function(authData){
                 {
-                  	 gameStats : [
+                   gameStats : [
   {
     value: 300,
     color:"#F7464A",
@@ -165,8 +135,7 @@ $scope.timeData = {
 };
  $scope.ctx = document.getElementById("timeData").getContext("2d");
  $scope.myLineChart = new Chart($scope.ctx).Line($scope.timeData, {responsive: true});
- }).catch(function(error) {
-    console.log("Authentication failed:", error);
-  });
-		});
-        });
+
+
+
+});

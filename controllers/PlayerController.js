@@ -14,8 +14,9 @@ SFApp.controller("PlayerController",function($scope,AuthService,$firebaseArray,$
                 		wins: 0
                 	};
                 	$scope.user = ref.child("Players").child(userData.uid);
-                	$scope.userObj = new $firebaseObject($scope.user) || Players.$getRecord(userData.uid);
-                	if (!$scope.userObj.$value){
+                	if(!$scope.user){
+                	$scope.userObj = new $firebaseObject($scope.user);
+                	
                 	$scope.userObj.$value = $scope.dat;
                 
                 	Players.$add($scope.userObj).then(function(ref) {
@@ -23,7 +24,10 @@ SFApp.controller("PlayerController",function($scope,AuthService,$firebaseArray,$
   console.log("added record with id " + id);
   Players.$indexFor(id); // returns location in the array
 });
+}else{
+$scope.userObj =	Players.$getRecord(userData.uid);
 }
+
                 	$scope.userObj.$save().then(function(ref) {
   ref.key() === $scope.userObj.$id;
                 	});

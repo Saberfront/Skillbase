@@ -29,7 +29,7 @@ SFApp.controller("PlayerController",function($scope,AuthService,$firebaseArray,$
 });
 }else{
 $scope.userObj =	Players.$getRecord(userData.uid);
-$scope.dat = $scope.userObj.wins;
+$scope.dat.wins = $scope.userObj.wins;
 }
 
                 

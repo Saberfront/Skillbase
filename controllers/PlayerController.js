@@ -1,4 +1,4 @@
-SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray,$routeParams){
+SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray,$firebaseObject,$routeParams){
 		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 		var auth = $firebaseAuth(ref);
 		var Players = $firebaseArray(ref.child("Players"))
@@ -9,8 +9,14 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
 		}).then(function(userData){
                 console.log(userData.uid);
                 	$scope.dat = {
-                		name: userData.email
+                		name: userData.email,
+                		about: "Lorum Ipsum Dolor",
+                		wins: 0
                 	};
+                	$scope.user = ref.child("Players").child(userData.uid);
+                	$scope.userObj = new $firebaseObject($scope.user);
+                	$scope.userObj.$value = $scope.dat
+                	
              $scope.Players = [
              	{
              		gameStats: [

@@ -2,23 +2,10 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
 		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 		var auth = $firebaseAuth(ref);
 		var Players = $firebaseArray(ref.child("Players"))
-		auth.$authWithOAuthPopup("google").then(function(authData) {
-        if(Players == null){
-        
-        	console.log("Players list null");
-        }else{
-        	Players.$add({
-        		name: authData.google.displayName
-        	}).then(function(ref) {
-console.log("User added"); // returns location in the array
-});
-        }
-       
-  }).catch(function(error) {
-    console.log("Authentication failed:", error);
-  });
-		    $scope.playerName = Players[$routeParams.id].name;
-            $scope.Players = [
+		auth.$authWithPassword({
+		 username: $scope.em,
+		 password: $scope.pass
+		}).then(function(authData){
                 {
                    gameStats : [
   {
@@ -151,3 +138,4 @@ $scope.timeData = {
 
 
         });
+});

@@ -25,10 +25,10 @@ $scope.next = function(target) {
     body.classList.remove('error');
     
     var enable = document.querySelector('form fieldset.enable'),
-        nextEnable = enable.nextElementSibling;
-    enable.classList.remove('enable');
-    enable.classList.add('disable');
-    nextEnable.classList.add('enable');
+        nextEnable = enable.next();
+    enable.removeClass('enable');
+    enable.addClass('disable');
+    nextEnable.addClass('enable');
     
     // Switch active class on left list
     var active = document.querySelector('ul.items li.active'),

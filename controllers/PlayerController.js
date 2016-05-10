@@ -1,6 +1,6 @@
-SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray,$firebaseObject,$routeParams){
-		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
-		var auth = $firebaseAuth(ref);
+SFApp.controller("PlayerController",function($scope,AuthService,$firebaseArray,$firebaseObject,$routeParams){
+	
+		var auth = 
 		var Players = $firebaseArray(ref.child("Players"))
 	$scope.login = function(){
 		auth.$authWithPassword({
@@ -22,7 +22,7 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
   Players.$indexFor(id); // returns location in the array
 });
                 	$scope.userObj.$save().then(function(ref) {
-  ref.key() === userObj.$id;
+  ref.key() === $scope.userObj.$id;
                 	});
              $scope.Players = [
              	{

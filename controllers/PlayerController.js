@@ -2,12 +2,15 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
 		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 		var auth = $firebaseAuth(ref);
 		var Players = $firebaseArray(ref.child("Players"))
+	$scope.login = function(){
 		auth.$authWithPassword({
-		 username: $scope.em,
+		 email: $scope.em,
 		 password: $scope.pass
-		}).then(function(authData){
-                
-                	
+		}).then(function(userData){
+                console.log(userData.uid);
+                	$scope.dat = {
+                		name: userData.email
+                	};
              $scope.Players = [
              	{
              		gameStats: [
@@ -140,5 +143,6 @@ $scope.timeData = {
  $scope.myLineChart = new Chart($scope.ctx).Line($scope.timeData, {responsive: true});
 
 });
+};
 
 });

@@ -38,6 +38,7 @@ console.log(authData);
   };
   
   
+  
   $scope.replay = function(classname) {
      $('.' + classname).fadeOut({
        duration: 200,

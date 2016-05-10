@@ -6,13 +6,13 @@ SFApp.controller("Registration",function($scope,$firebaseAuth){
 $scope.init = function() {
   // Generate li foreach fieldset
   for (var i = 0; i < count; i++) {
-    var ul = document.querySelector('ul.items'),
-        li = document.createElement("li");
+    var ul = $('ul.items'),
+        li = $("<li></li>");
+ li.appendTo(ul);
 
-    ul.appendChild(li);
   }
   // Add class active on first li
-  ul.firstChild.classList.add('active');
+  ul.children()[0].addClass('active');
 }
 
 $scope.next = function(target) {

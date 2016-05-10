@@ -4,7 +4,7 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
 var authData = auth.$getAuth();
 console.log(authData);
   if (authData) {
-  	obj = new $firebaseObject(Players.$getRecord(authData.uid));
+  	var obj = new $firebaseObject(Players.$getRecord(authData.uid));
   	
   	obj.$bindTo($scope, "dat").then(function() {
  

@@ -5,8 +5,7 @@ SFApp.controller('SaberToeController', function($scope,AuthService,$firebaseArra
 auth.$onAuth(function(authData) {
   if (authData) {
   	$scope.dat = Players.$getRecord(authData.uid);
-  }
-});
+ 
   
   
   $scope.sides = {
@@ -66,12 +65,12 @@ auth.$onAuth(function(authData) {
        ($scope.board[0][2] === $scope.board[1][1] && $scope.board[1][1] === $scope.board[2][0] && $scope.board[0][2] !== '0')) {
       console.log('You win!');
       if($scope.dat){
-      	$scope.user = Players.$getRecord(userData.uid);
-      	$scope.userObj = new $firebaseObject($scope.user);
+      	
+      	$scope.userObj = Players.$getRecord(authData.uid);
         $scope.userObj.$value = $scope.dat;
       	$scope.dat.wins += 1;
       	$scope.userObj.$save().then(function(ref){
-      		ref.key() === userData.uid;
+      		ref.key() === authData.uid;
       	})
       }
       $scope.isWin = true;
@@ -301,4 +300,6 @@ auth.$onAuth(function(authData) {
     });
   };
   
+});
+ }
 });

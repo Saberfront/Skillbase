@@ -18,7 +18,7 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
                 	$scope.userObj.$value = $scope.dat
                 	$scope.userObj.$save().then(function(ref) {
   ref.key() === userObj.$id;
-                	
+                	});
              $scope.Players = [
              	{
              		gameStats: [

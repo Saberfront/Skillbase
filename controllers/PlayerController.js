@@ -6,8 +6,10 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
 		 username: $scope.em,
 		 password: $scope.pass
 		}).then(function(authData){
-                {
-                   gameStats : [
+                
+                	
+             $scope.Players = [
+             	{gameStats: [
   {
     value: 300,
     color:"#F7464A",

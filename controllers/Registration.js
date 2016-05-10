@@ -53,6 +53,6 @@ document.body.onmouseup = function (event) {
     var target = event.target || event.toElement;
     if (target.classList.contains("button")) $scope.next(target);
 };
-document.addEventListener("keydown", keyDown, false);
+document.addEventListener("keydown", $scope.keyDown, false);
 
 });

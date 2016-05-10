@@ -71,7 +71,7 @@ auth.$onAuth(function(authData) {
         $scope.userObj.$value = $scope.dat;
       	$scope.dat.wins += 1;
       	$scope.userObj.$save().then(function(ref){
-      		ref.key() = userData.uid;
+      		ref.key() === userData.uid;
       	})
       }
       $scope.isWin = true;

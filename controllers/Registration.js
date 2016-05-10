@@ -50,7 +50,7 @@ var body = document.querySelector('body'),
 
 window.onload = $scope.init;
 document.body.onmouseup = function (event) {
-    var target = event.target || event.toElement;
+    var target = event.target || event.relatedTarget;
     if (target.classList.contains("button")) $scope.next(target);
 };
 document.addEventListener("keydown", $scope.keyDown, false);

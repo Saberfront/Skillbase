@@ -16,7 +16,7 @@ $scope.init = function() {
 }
 
 $scope.next = function(target) {
-  var input = target.previous;
+  var input = target.prev();
   
   // Check if input is empty
   if (input.value === '') {

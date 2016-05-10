@@ -1,8 +1,9 @@
-SFApp.controller("Registration",function($scope,$firebaseAuth){
+SFApp.controller("Registration",function($scope,$firebaseAuth,$firebaseArray){
 /**
  * Surely there's some improvements to make, comments/help always appreciated :3
  */
-
+$scope.ref = new Firebase("https://saberfront-skillbase.firebaseio.com/Players");
+auth = $firebaseAuth($scope.ref);
 $scope.init = function() {
   // Generate li foreach fieldset
   for (var i = 0; i < count; i++) {
@@ -37,7 +38,16 @@ $scope.next = function(target) {
     nextActive.addClass('active');
   }
 }
-
+$scope.signup = function(){
+  auth.$createUser({
+        email: $scope.email,
+        password: $scope.pass
+      }).then(function(userData) {
+         console.log("User created with uid: " + userData.uid);
+      }).catch(function(error) {
+         console.log(error);
+      });
+};
  $scope.keyDown = function(event) {
   var key = event.keyCode,
       target = document.querySelector('fieldset.enable .button');

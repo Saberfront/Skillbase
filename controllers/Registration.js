@@ -16,7 +16,7 @@ $scope.init = function() {
 }
 
 $scope.next = function(target) {
-  var input = target.previousElementSibling;
+  var input = target.previous;
   
   // Check if input is empty
   if (input.value === '') {
@@ -31,10 +31,10 @@ $scope.next = function(target) {
     nextEnable.addClass('enable');
     
     // Switch active class on left list
-    var active = document.querySelector('ul.items li.active'),
-        nextActive = active.nextElementSibling;
-    active.classList.remove('active');
-    nextActive.classList.add('active');
+    var active = $('ul.items li.active'),
+        nextActive = active.next();
+    active.removeClass('active');
+    nextActive.addClass('active');
   }
 }
 

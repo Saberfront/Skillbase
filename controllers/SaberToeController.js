@@ -4,7 +4,7 @@ SFApp.controller('SaberToeController', function($scope,AuthService,$firebaseArra
 		var Players = $firebaseArray(ref.child("Players"))
 auth.$onAuth(function(authData) {
   if (authData) {
-  	$scope.dat = Players.$getRecord(userData.uid);
+  	$scope.dat = Players.$getRecord(authData.uid);
   }
 });
   

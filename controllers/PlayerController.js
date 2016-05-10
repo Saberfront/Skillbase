@@ -9,7 +9,7 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
 		}).then(function(userData){
                 console.log(userData.uid);
                 	$scope.dat = {
-                		name: userData.email,
+                		name: "Test",
                 		about: "Lorum Ipsum Dolor",
                 		wins: 0
                 	};
@@ -19,7 +19,7 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
                 	Players.$add($scope.userObj).then(function(ref) {
   var id = ref.key();
   console.log("added record with id " + id);
-  list.$indexFor(id); // returns location in the array
+  Players.$indexFor(id); // returns location in the array
 });
                 	$scope.userObj.$save().then(function(ref) {
   ref.key() === userObj.$id;

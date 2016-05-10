@@ -159,15 +159,8 @@ body {
     })
     .when('/SaberToe',{
         controller: 'SaberToeController',
-        templateUrl: 'views/sabertoe.html',
-           resolve: {
-    // controller will not be loaded until $waitForAuth resolves
-    // Auth refers to our $firebaseAuth wrapper in the example above
-    "currentAuth": function(AuthService) {
-      // $waitForAuth returns a promise so the resolve waits for it to complete
-      return AuthService.$waitForAuth();
-    }
-  }
+        templateUrl: 'views/sabertoe.html'
+           
     })
     .when('/register',{
         controller: 'RegistrationController',

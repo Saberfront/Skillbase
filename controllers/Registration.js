@@ -24,7 +24,7 @@ $scope.next = function(target) {
   } else {
     body.classList.remove('error');
     
-    var enable = document.querySelector('form fieldset.enable'),
+    var enable = $('form fieldset.enable'),
         nextEnable = enable.next();
     enable.removeClass('enable');
     enable.addClass('disable');

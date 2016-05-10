@@ -137,4 +137,5 @@ $scope.timeData = {
  $scope.myLineChart = new Chart($scope.ctx).Line($scope.timeData, {responsive: true});
 
 
+
 });

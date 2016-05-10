@@ -3,13 +3,15 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
 		var ref2 = new Firebase("saberfront-skillbase.firebaseio.com");
 		var auth = $firebaseAuth(ref2);
 		var Players = $firebaseArray(ref);
-		auth.$authWithOAuthPopup("google").then(function(authData) {
-				$scope.dat = {
-					id: authData.uid,
-        		name: authData.google.displayName,
-        		about: "Lorum Ipsum Dolor",
-        		wins: 0
-        	};
+		$scope.login = function(){
+		auth.$authWithPassword({
+			username: $scope.em,
+			password: $scope.pass
+		}).then(function(authData) {
+			$scope.dat = {
+				about: "Lorum Ipsum",
+				wins: 0
+			};
         
 			         $scope.player = Players.$getRecord(authData.uid);
 
@@ -172,6 +174,6 @@ $scope.timeData = {
 };
  $scope.ctx = document.getElementById("timeData").getContext("2d");
  $scope.myLineChart = new Chart($scope.ctx).Line($scope.timeData, {responsive: true});
-
+});
 
         });

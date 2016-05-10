@@ -42,7 +42,7 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
     label: "Dominion"
   }
 ]
-
+}
                 ];
             
 $scope.ctx = window.document.getElementById("gameStats").getContext("2d");
@@ -139,6 +139,6 @@ $scope.timeData = {
  $scope.ctx = document.getElementById("timeData").getContext("2d");
  $scope.myLineChart = new Chart($scope.ctx).Line($scope.timeData, {responsive: true});
 
-
+});
 
 });

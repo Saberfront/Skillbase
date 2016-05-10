@@ -1,11 +1,12 @@
-SFApp.controller('SaberToeController', function($scope,$firebaseAuth,$firebaseArray,$firebaseObject,$routeParams){
+SFApp.controller('SaberToeController', function($scope,AuthService,$firebaseArray,$firebaseObject,$routeParams){
 		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
-		var auth = $firebaseAuth(ref);
+		var auth = AuthService;
 		var Players = $firebaseArray(ref.child("Players"))
-	/*	auth.$authWithOAuthPopup("google").then(function(authData) {
-      *		        		    $scope.dat = Players.$getRecord(Players.$keyAt(Players.$indexFor($scope.dat)));
-
-}); */
+auth.$onAuth(function(authData) {
+  if (authData) {
+  	$scope.dat = Players.$getRecord(userData.uid);
+  }
+});
   
   
   $scope.sides = {
@@ -64,7 +65,15 @@ SFApp.controller('SaberToeController', function($scope,$firebaseAuth,$firebaseAr
        ($scope.board[0][0] === $scope.board[1][1] && $scope.board[1][1] === $scope.board[2][2] && $scope.board[0][0] !== '0') ||
        ($scope.board[0][2] === $scope.board[1][1] && $scope.board[1][1] === $scope.board[2][0] && $scope.board[0][2] !== '0')) {
       console.log('You win!');
-      $scope.dat.wins += 1;
+      if($scope.dat){
+      	$scope.user = Players.$getRecord(userData.uid);
+      	$scope.userObj = new $firebaseObject($scope.user);
+        $scope.userObj.$value = $scope.dat;
+      	$scope.dat.wins += 1;
+      	$scope.userObj.$save().then(function(ref){
+      		ref.key() = userData.uid;
+      	})
+      }
       $scope.isWin = true;
     }
   };

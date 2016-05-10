@@ -153,6 +153,10 @@ body {
         controller: 'SaberToeController',
         templateUrl: 'views/sabertoe.html'
     })
+    .when('/register',{
+        controller: 'Registration',
+        templateUrl: 'views/register.html'
+    })
     .otherwise({ 
       redirectTo: '/' 
     });

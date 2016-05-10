@@ -23,14 +23,15 @@ SFApp.controller("PlayerController",function($scope,AuthService,$firebaseArray,$
   var id = ref.key();
   console.log("added record with id " + id);
   Players.$indexFor(id); // returns location in the array
+  	$scope.userObj.$save().then(function(ref) {
+  ref.key() === $scope.userObj.$id;
+                	});
 });
 }else{
 $scope.userObj =	Players.$getRecord(userData.uid);
 }
 
-                	$scope.userObj.$save().then(function(ref) {
-  ref.key() === $scope.userObj.$id;
-                	});
+                
              $scope.Players = [
              	{
              		gameStats: [

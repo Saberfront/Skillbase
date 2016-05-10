@@ -168,4 +168,5 @@ $scope.timeData = {
  }).catch(function(error) {
     console.log("Authentication failed:", error);
   });
+		});
         });

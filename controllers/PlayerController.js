@@ -41,9 +41,7 @@ console.log("User added"); // returns location in the array
 
         }
        
-  }).catch(function(error) {
-    console.log("Authentication failed:", error);
-  });
+ 
             $scope.Players = [
                 {
                   	 gameStats : [
@@ -174,6 +172,7 @@ $scope.timeData = {
 };
  $scope.ctx = document.getElementById("timeData").getContext("2d");
  $scope.myLineChart = new Chart($scope.ctx).Line($scope.timeData, {responsive: true});
-});
-
+ }).catch(function(error) {
+    console.log("Authentication failed:", error);
+  });
         });

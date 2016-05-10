@@ -9,7 +9,8 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
                 
                 	
              $scope.Players = [
-             	{gameStats: [
+             	{
+             		gameStats: [
   {
     value: 300,
     color:"#F7464A",
@@ -41,7 +42,7 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
     label: "Dominion"
   }
 ]
-                }
+
                 ];
             
 $scope.ctx = window.document.getElementById("gameStats").getContext("2d");

@@ -379,7 +379,7 @@ h3 {
 
 </style>
 <div class="container" ng-controller="SaberToeController">
-  div class="login-form">
+  div class="login-form" ng-show="!isLoggedIn">
   <div class="f">
     <div class="front">Login</div>
     <div class="back">
@@ -397,7 +397,7 @@ h3 {
     </div>
   </div>
 </div>
-  <div class="start-screen" ng-show="!started">
+  <div class="start-screen" ng-show="!started && isLoggedIn">
     <a href class="start" ng-click="start('start-screen')">Start the battle</a>
     <p>Made by <a href="http://codepen.io/saintgeo23">saintgeo23</a><br>for <a href="http://www.freecodecamp.com/">FreeCodeCamp</a> project</p>
     <p>Inspired by <a href="https://www.behance.net/gallery/17998561/Star-Wars-Long-Shadow-Flat-Design-Icons">Filipe de Carvalho</a></p>

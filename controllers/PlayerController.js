@@ -29,13 +29,6 @@ if (!$scope.player){
 console.log("User added"); // returns location in the array
 
 });
-}else{
-	$obj = $firebaseObject($scope.player);
-	$obj.$bindTo($scope.player, "data").then(function() {
-  console.log($scope.data); // { foo: "bar" }
-  $scope.playerName = $scope.data.name;  // will be saved to the database
-    // this would update the database and $scope.data
-});
 }
         }
 
@@ -174,5 +167,5 @@ $scope.timeData = {
  $scope.myLineChart = new Chart($scope.ctx).Line($scope.timeData, {responsive: true});
  }).catch(function(error) {
     console.log("Authentication failed:", error);
-  };
+  });
         });

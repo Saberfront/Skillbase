@@ -2,7 +2,7 @@ SFApp.controller('SaberToeController', function($scope,AuthService,$firebaseArra
 		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 		var auth = AuthService;
 		var Players = $firebaseArray(ref.child("Players"))
-auth.$onAuth(function(authData) {
+var authData = auth.$getAuth();
   if (authData) {
   	$scope.dat = Players.$getRecord(authData.uid);
  
@@ -71,7 +71,7 @@ auth.$onAuth(function(authData) {
       	$scope.dat.wins += 1;
       	$scope.userObj.$save().then(function(ref){
       		ref.key() === authData.uid;
-      	})
+      	});
       }
       $scope.isWin = true;
     }
@@ -302,5 +302,4 @@ auth.$onAuth(function(authData) {
   
  
  }
-});
 });

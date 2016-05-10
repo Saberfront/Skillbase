@@ -5,7 +5,9 @@ SFApp.controller('SaberToeController', function($scope,AuthService,$firebaseArra
 var authData = auth.$getAuth();
 console.log(authData);
   if (authData) {
-  	$scope.dat = Players.$getRecord(authData.uid);
+  	obj = new $firebaseObject(Players.$getRecord(authData.uid));
+  	
+  	obj.$bindTo($scope, "dat").then(function() {
  
   
   
@@ -71,10 +73,7 @@ console.log(authData);
         $scope.dat = $scope.userObj;
       	$scope.dat.wins += 1;
       	$scope.userObj = $scope.dat;
-      	console.log($scope.dat.wins)
-      	$scope.userObj.$save().then(function(ref){
-      		ref.key() === authData.uid;
-      	});
+      	console.log($scope.dat.wins);
       }
       $scope.isWin = true;
     }
@@ -302,7 +301,7 @@ console.log(authData);
       }
     });
   };
-  
+  	});
  
  }
 });

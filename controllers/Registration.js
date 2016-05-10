@@ -1,4 +1,4 @@
-SFApp.controller("Registration",function($scope,$firebaseAuth,$firebaseArray){
+SFApp.controller("RegistrationController",function($scope,$firebaseAuth,$firebaseArray){
 /**
  * Surely there's some improvements to make, comments/help always appreciated :3
  */

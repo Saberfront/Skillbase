@@ -68,8 +68,9 @@ console.log(authData);
       if($scope.dat){
       	
       	$scope.userObj = Players.$getRecord(authData.uid);
-        $scope.userObj = $scope.dat;
+        $scope.dat = $scope.userObj;
       	$scope.dat.wins += 1;
+      	$scope.userObj = $scope.dat;
       	console.log($scope.dat.wins)
       	$scope.userObj.$save().then(function(ref){
       		ref.key() === authData.uid;

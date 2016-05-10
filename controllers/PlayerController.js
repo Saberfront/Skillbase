@@ -16,6 +16,11 @@ SFApp.controller("PlayerController",function($scope,$firebaseAuth,$firebaseArray
                 	$scope.user = ref.child("Players").child(userData.uid);
                 	$scope.userObj = new $firebaseObject($scope.user);
                 	$scope.userObj.$value = $scope.dat;
+                	Players.add($scope.userObj).then(function(ref) {
+  var id = ref.key();
+  console.log("added record with id " + id);
+  list.$indexFor(id); // returns location in the array
+});
                 	$scope.userObj.$save().then(function(ref) {
   ref.key() === userObj.$id;
                 	});

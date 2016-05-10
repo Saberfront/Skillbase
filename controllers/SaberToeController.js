@@ -3,6 +3,7 @@ SFApp.controller('SaberToeController', function($scope,AuthService,$firebaseArra
 		var auth = AuthService;
 		var Players = $firebaseArray(ref.child("Players"))
 var authData = auth.$getAuth();
+console.log(authData);
   if (authData) {
   	$scope.dat = Players.$getRecord(authData.uid);
  

@@ -313,7 +313,7 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
       $scope.isWin = true;
     }
   };
-	 });
+	
 	}
 
 

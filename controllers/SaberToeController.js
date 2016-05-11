@@ -17,15 +17,7 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
   	$scope.dat = obj.$value;
   
   
-  		
-  	});
-	}
-
-
-	}
-	
-	});
-		};
+  	
 	
 
   
@@ -321,6 +313,13 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
       $scope.isWin = true;
     }
   };
+	 });
+	}
+
+
+	}
 	
+	});
+		};
 		
 });

@@ -1,26 +1,7 @@
 SFApp.controller('SaberToeController', function($scope,AuthService,Players,$firebaseObject,$routeParams){
 		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 		var auth = AuthService;
-			  function ifWin(authData) {
-    if (($scope.board[0][0] === $scope.board[0][1] && $scope.board[0][1] === $scope.board[0][2] && $scope.board[0][0] !== '0') ||
-       ($scope.board[1][0] === $scope.board[1][1] && $scope.board[1][1] === $scope.board[1][2] && $scope.board[1][0] !== '0') ||
-       ($scope.board[2][0] === $scope.board[2][1] && $scope.board[2][1] === $scope.board[2][2] && $scope.board[2][0] !== '0') ||
-       ($scope.board[0][0] === $scope.board[1][0] && $scope.board[1][0] === $scope.board[2][0] && $scope.board[0][0] !== '0') ||
-       ($scope.board[0][1] === $scope.board[1][1] && $scope.board[1][1] === $scope.board[2][1] && $scope.board[0][1] !== '0') ||
-       ($scope.board[0][2] === $scope.board[1][2] && $scope.board[1][2] === $scope.board[2][2] && $scope.board[0][2] !== '0') ||
-       ($scope.board[0][0] === $scope.board[1][1] && $scope.board[1][1] === $scope.board[2][2] && $scope.board[0][0] !== '0') ||
-       ($scope.board[0][2] === $scope.board[1][1] && $scope.board[1][1] === $scope.board[2][0] && $scope.board[0][2] !== '0')) {
-      console.log('You win!');
-  
-      	$scope.userObj = Players.$getRecord(authData.uid);
-        $scope.dat = $scope.userObj;
-      	$scope.dat.wins += 1;
-      	$scope.userObj = $scope.dat;
-      	console.log($scope.dat.wins);
-  
-      $scope.isWin = true;
-    }
-  };
+		
 		$scope.login = function(){
  auth.$authWithPassword({
 	email: $scope.email,
@@ -36,18 +17,7 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
   	
   	obj.$bindTo($scope, "dat").then(function() {
   	
-  
-  		
-  	});
-	}
-
-
-	}
-	
-	});
-		};
-	
- $scope.sides = {
+   $scope.sides = {
     '0': 'https://mamarada.club/images/cell-bg.jpg',
     '1': 'https://mamarada.club/images/obi.png',
     '2': 'https://mamarada.club/images/darth.png'
@@ -317,6 +287,37 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
       }
     });
   };
+  	  function ifWin() {
+    if (($scope.board[0][0] === $scope.board[0][1] && $scope.board[0][1] === $scope.board[0][2] && $scope.board[0][0] !== '0') ||
+       ($scope.board[1][0] === $scope.board[1][1] && $scope.board[1][1] === $scope.board[1][2] && $scope.board[1][0] !== '0') ||
+       ($scope.board[2][0] === $scope.board[2][1] && $scope.board[2][1] === $scope.board[2][2] && $scope.board[2][0] !== '0') ||
+       ($scope.board[0][0] === $scope.board[1][0] && $scope.board[1][0] === $scope.board[2][0] && $scope.board[0][0] !== '0') ||
+       ($scope.board[0][1] === $scope.board[1][1] && $scope.board[1][1] === $scope.board[2][1] && $scope.board[0][1] !== '0') ||
+       ($scope.board[0][2] === $scope.board[1][2] && $scope.board[1][2] === $scope.board[2][2] && $scope.board[0][2] !== '0') ||
+       ($scope.board[0][0] === $scope.board[1][1] && $scope.board[1][1] === $scope.board[2][2] && $scope.board[0][0] !== '0') ||
+       ($scope.board[0][2] === $scope.board[1][1] && $scope.board[1][1] === $scope.board[2][0] && $scope.board[0][2] !== '0')) {
+      console.log('You win!');
+  
+      	$scope.userObj = Players.$getRecord(authData.uid);
+        $scope.dat = $scope.userObj;
+      	$scope.dat.wins += 1;
+      	$scope.userObj = $scope.dat;
+      	console.log($scope.dat.wins);
+  
+      $scope.isWin = true;
+    }
+  };
+  		
+  	});
+	}
+
+
+	}
+	
+	});
+		};
+	
+
   
  
  

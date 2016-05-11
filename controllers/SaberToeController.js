@@ -13,7 +13,30 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
 	 if ($scope.isLoggedIn) {
   	var obj = $firebaseObject(Players.$getRecord(authData.uid));
   	
-  	obj.$bindTo($scope, "dat").then(function() {});
+  	obj.$bindTo($scope, "dat").then(function() {
+  		  function ifWin() {
+    if (($scope.board[0][0] === $scope.board[0][1] && $scope.board[0][1] === $scope.board[0][2] && $scope.board[0][0] !== '0') ||
+       ($scope.board[1][0] === $scope.board[1][1] && $scope.board[1][1] === $scope.board[1][2] && $scope.board[1][0] !== '0') ||
+       ($scope.board[2][0] === $scope.board[2][1] && $scope.board[2][1] === $scope.board[2][2] && $scope.board[2][0] !== '0') ||
+       ($scope.board[0][0] === $scope.board[1][0] && $scope.board[1][0] === $scope.board[2][0] && $scope.board[0][0] !== '0') ||
+       ($scope.board[0][1] === $scope.board[1][1] && $scope.board[1][1] === $scope.board[2][1] && $scope.board[0][1] !== '0') ||
+       ($scope.board[0][2] === $scope.board[1][2] && $scope.board[1][2] === $scope.board[2][2] && $scope.board[0][2] !== '0') ||
+       ($scope.board[0][0] === $scope.board[1][1] && $scope.board[1][1] === $scope.board[2][2] && $scope.board[0][0] !== '0') ||
+       ($scope.board[0][2] === $scope.board[1][1] && $scope.board[1][1] === $scope.board[2][0] && $scope.board[0][2] !== '0')) {
+      console.log('You win!');
+  
+      	$scope.userObj = Players.$getRecord(authData.uid);
+        $scope.dat = $scope.userObj;
+      	$scope.dat.wins += 1;
+      	$scope.userObj = $scope.dat;
+      	console.log($scope.dat.wins);
+  
+      $scope.isWin = true;
+    }
+  };
+  
+  		
+  	});
 	}
 
 
@@ -69,27 +92,7 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
   };
   
   
-  function ifWin() {
-    if (($scope.board[0][0] === $scope.board[0][1] && $scope.board[0][1] === $scope.board[0][2] && $scope.board[0][0] !== '0') ||
-       ($scope.board[1][0] === $scope.board[1][1] && $scope.board[1][1] === $scope.board[1][2] && $scope.board[1][0] !== '0') ||
-       ($scope.board[2][0] === $scope.board[2][1] && $scope.board[2][1] === $scope.board[2][2] && $scope.board[2][0] !== '0') ||
-       ($scope.board[0][0] === $scope.board[1][0] && $scope.board[1][0] === $scope.board[2][0] && $scope.board[0][0] !== '0') ||
-       ($scope.board[0][1] === $scope.board[1][1] && $scope.board[1][1] === $scope.board[2][1] && $scope.board[0][1] !== '0') ||
-       ($scope.board[0][2] === $scope.board[1][2] && $scope.board[1][2] === $scope.board[2][2] && $scope.board[0][2] !== '0') ||
-       ($scope.board[0][0] === $scope.board[1][1] && $scope.board[1][1] === $scope.board[2][2] && $scope.board[0][0] !== '0') ||
-       ($scope.board[0][2] === $scope.board[1][1] && $scope.board[1][1] === $scope.board[2][0] && $scope.board[0][2] !== '0')) {
-      console.log('You win!');
-  
-      	$scope.userObj = Players.$getRecord(authData.uid);
-        $scope.dat = $scope.userObj;
-      	$scope.dat.wins += 1;
-      	$scope.userObj = $scope.dat;
-      	console.log($scope.dat.wins);
-  
-      $scope.isWin = true;
-    }
-  };
-  
+
   
   function ifDraw() {
     var empty1 = [];

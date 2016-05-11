@@ -18,7 +18,10 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
 
 
 	}
-		});
+	
+	});
+		};
+	
  $scope.sides = {
     '0': 'https://mamarada.club/images/cell-bg.jpg',
     '1': 'https://mamarada.club/images/obi.png',

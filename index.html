@@ -155,11 +155,11 @@ body {
 
     $rootScope.$broadcast('FB.init');
   };
+    ezfbProvider.setInitFunction(FBSkilbaseStartup);
+
 ezfbProvider.setLoadSDKFunction(function (ezfbAsyncInit) {
     ezfbAsyncInit();
   });
-  ezfbProvider.setInitFunction(FBSkilbaseStartup);
-});
 });
  
         SFApp.config(function ($routeProvider) { 

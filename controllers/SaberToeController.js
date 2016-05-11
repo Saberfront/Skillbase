@@ -10,7 +10,7 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
   
  auth.$onAuth(function(authData){
  		var obj = Players.$getRecord(authData.uid);
-  	$scope.dat = obj.$value;
+  	$scope.dat = obj;
  	 $scope.cells = ["0,0", "0,1", "0,2", "1,0", "1,1", "1,2", "2,0", "2,1", "2,2"];
   
   

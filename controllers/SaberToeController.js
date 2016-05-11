@@ -10,12 +10,7 @@ var authData = auth.$authWithPassword({
 		var authData = userData;
 		$scope.isLoggedIn = true;
 	console.log(userData);
-	}
-
-});
- 
-		};
-		 if ($scope.isLoggedIn) {
+	 if ($scope.isLoggedIn) {
   	var obj = $firebaseObject(Players.$getRecord(authData.uid));
   	
   	obj.$bindTo($scope, "dat").then(function() {
@@ -315,4 +310,11 @@ var authData = auth.$authWithPassword({
   	});
  
  }
+	}
+
+});
+ 
+		};
+	
+		
 });

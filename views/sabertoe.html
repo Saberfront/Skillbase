@@ -381,10 +381,10 @@ h3 {
 <div class="container" ng-controller="SaberToeController">
   <div class="login-form" ng-show="!isLoggedIn">
   <div class="f">
-    <div class="front">Login</div>
+    <div class="front" ng-click="login()">Login</div>
     <div class="back">
       <div class="username">
-        <label for="pass">usename:</label>
+        <label for="pass">username:</label>
         <input type="text" ng-model="email" id="pass"/>
       </div>
     </div>

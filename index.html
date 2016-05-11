@@ -151,7 +151,7 @@ body {
     version: 'v2.6'
   });  
   var FBSkillbaseStartup = function ($window, $rootScope, ezfbInitParams) {
-   $window.FB.init(ezfbInitParams);
+   ezfb.init(ezfbInitParams);
 
     $rootScope.$broadcast('FB.init');
   };

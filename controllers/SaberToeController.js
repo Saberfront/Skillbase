@@ -291,7 +291,7 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
       	console.log($scope.dat.wins);
       	
   	
-  	obj.set(dat);
+  	obj.set($scope.dat);
       $scope.isWin = true;
     }
   };

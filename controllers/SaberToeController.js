@@ -8,7 +8,10 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
   };
    
   
-  $scope.cells = ["0,0", "0,1", "0,2", "1,0", "1,1", "1,2", "2,0", "2,1", "2,2"];
+ auth.$onAuth(function(authData){
+ 		var obj = $firebaseObject(Players.$getRecord(authData.uid));
+  	$scope.dat = obj.$value;
+ 	 $scope.cells = ["0,0", "0,1", "0,2", "1,0", "1,1", "1,2", "2,0", "2,1", "2,2"];
   
   
   $scope.started = false;
@@ -291,6 +294,7 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
       $scope.isWin = true;
     }
   };
+ });
 		$scope.login = function(){
  auth.$authWithPassword({
 	email: $scope.email,
@@ -301,9 +305,8 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
 		$scope.authData = authData;
 		$scope.isLoggedIn = true;
 	console.log(userData);
-	 if ($scope.isLoggedIn) {
-  	var obj = $firebaseObject(Players.$getRecord(authData.uid));
-  	$scope.dat = obj.$value;
+
+  
   
   
   	

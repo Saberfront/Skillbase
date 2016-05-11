@@ -1,4 +1,4 @@
-SFApp.controller('SaberToeController', function($scope,AuthService,Players,$firebaseArray,$firebaseObject,$routeParams){
+SFApp.controller('SaberToeController', function($scope,AuthService,Players,$firebaseObject,$routeParams){
 		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 
 		var auth = AuthService;
@@ -10,7 +10,6 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
    
   
  auth.$onAuth(function(authData){
- 	var Players = $firebaseArray(ref.child("Players"));
  		var obj =  $firebaseObject(Players.$getRecord(authData.uid));
   	$scope.dat = obj.$value;
  	 $scope.cells = ["0,0", "0,1", "0,2", "1,0", "1,1", "1,2", "2,0", "2,1", "2,2"];

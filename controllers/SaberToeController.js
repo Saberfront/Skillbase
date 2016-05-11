@@ -2,7 +2,7 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
 		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 		var auth = AuthService;
 		$scope.login = function(){
-var authData = auth.$authWithPassword({
+ auth.$authWithPassword({
 	email: $scope.email,
 	password: $scope.pass
 }).then(function(userData){

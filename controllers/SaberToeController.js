@@ -1,20 +1,7 @@
 SFApp.controller('SaberToeController', function($scope,AuthService,Players,$firebaseObject,$routeParams){
 		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 		var auth = AuthService;
-		$scope.login = function(){
- auth.$authWithPassword({
-	email: $scope.email,
-	password: $scope.pass
-}).then(function(userData){
-	if(userData){
-		var authData = userData;
-		$scope.isLoggedIn = true;
-	console.log(userData);
-	 if ($scope.isLoggedIn) {
-  	var obj = $firebaseObject(Players.$getRecord(authData.uid));
-  	
-  	obj.$bindTo($scope, "dat").then(function() {
-  		  function ifWin() {
+			  function ifWin(authData) {
     if (($scope.board[0][0] === $scope.board[0][1] && $scope.board[0][1] === $scope.board[0][2] && $scope.board[0][0] !== '0') ||
        ($scope.board[1][0] === $scope.board[1][1] && $scope.board[1][1] === $scope.board[1][2] && $scope.board[1][0] !== '0') ||
        ($scope.board[2][0] === $scope.board[2][1] && $scope.board[2][1] === $scope.board[2][2] && $scope.board[2][0] !== '0') ||
@@ -34,6 +21,21 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
       $scope.isWin = true;
     }
   };
+		$scope.login = function(){
+ auth.$authWithPassword({
+	email: $scope.email,
+	password: $scope.pass
+}).then(function(userData){
+	if(userData){
+		var authData = userData;
+		$scope.authData = authData;
+		$scope.isLoggedIn = true;
+	console.log(userData);
+	 if ($scope.isLoggedIn) {
+  	var obj = $firebaseObject(Players.$getRecord(authData.uid));
+  	
+  	obj.$bindTo($scope, "dat").then(function() {
+  	
   
   		
   	});

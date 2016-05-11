@@ -1,4 +1,4 @@
-SFApp.controller('SaberToeController', function($scope,AuthService,Players,$firebaseObject,$routeParams){
+SFApp.controller('SaberToeController', function($scope,AuthService,Players,$firebaseArray,$firebaseObject,$routeParams){
 		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 
 		var auth = AuthService;

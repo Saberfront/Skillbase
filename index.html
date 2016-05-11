@@ -138,6 +138,9 @@ body {
     	"SaberfrontRBLX"
     	]
         var SFApp = angular.module("SaberfrontSkills",["firebase","ngRoute"]);
+        SFApp.config(function (ezfbProvider) {
+  ezfbProvider.setLocale('en_US');
+});
         SFApp.config(function ($routeProvider) { 
   $routeProvider 
     .when('/Player', { 

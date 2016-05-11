@@ -10,8 +10,8 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
    
   
  auth.$onAuth(function(authData){
- 		var obj =  $firebaseObject(Players.$getRecord(authData.uid));
-  	$scope.dat = obj.$value;
+ 		var obj =  Players.$getRecord(authData.uid);
+  	$scope.dat = obj;
  	 $scope.cells = ["0,0", "0,1", "0,2", "1,0", "1,1", "1,2", "2,0", "2,1", "2,2"];
   
   
@@ -292,7 +292,11 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
       	console.log($scope.dat.wins);
       	
   	
-  	obj.set($scope.dat);
+  
+  	Players[Players.$indexFor(authData.uid)] = $scope.dat;
+  	Players.$save(Players.$indexFor(authData.uid)).then(function(ref){
+  		ref.key() === authData.uid;
+  	});
       $scope.isWin = true;
     }
   };

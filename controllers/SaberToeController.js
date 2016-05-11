@@ -290,10 +290,8 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
       
       	console.log($scope.dat.wins);
       	
-  	obj = $scope.dat;
-  	obj.$save().then(function(ref){
-  		ref.key() = authData.uid;
-  	});
+  	
+  	obj.set(dat);
       $scope.isWin = true;
     }
   };

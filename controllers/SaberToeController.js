@@ -1,5 +1,4 @@
 SFApp.controller('SaberToeController', function($scope,AuthService,Players,$firebaseObject,$routeParams){
-		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 		var auth = AuthService;
 		 $scope.sides = {
     '0': 'https://mamarada.club/images/cell-bg.jpg',

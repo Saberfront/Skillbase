@@ -320,8 +320,7 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
 	}
 
 
-});
-	 
+
 	});
 	
 		};

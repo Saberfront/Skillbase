@@ -294,6 +294,7 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
       $scope.isWin = true;
     }
   };
+  
  });
 		$scope.login = function(){
  auth.$authWithPassword({
@@ -321,8 +322,10 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
 
 
 
-	});
 	
-		};
+	
+	
 		
+});
+	};
 });

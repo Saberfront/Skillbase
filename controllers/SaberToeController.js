@@ -13,15 +13,11 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
 	 if ($scope.isLoggedIn) {
   	var obj = $firebaseObject(Players.$getRecord(authData.uid));
   	
-  	obj.$bindTo($scope, "dat").then(function() {
- 
-  
-  
-  	});
+  	obj.$bindTo($scope, "dat").then(function() {});
 	}
 
 
- 
+	}
 		});
  $scope.sides = {
     '0': 'https://mamarada.club/images/cell-bg.jpg',

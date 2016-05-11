@@ -23,7 +23,13 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
   
  
  	
-   $scope.sides = {
+ 
+	
+	}
+
+
+	}
+	  $scope.sides = {
     '0': 'https://mamarada.club/images/cell-bg.jpg',
     '1': 'https://mamarada.club/images/obi.png',
     '2': 'https://mamarada.club/images/darth.png'
@@ -313,13 +319,8 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
       $scope.isWin = true;
     }
   };
-	
-	}
-
-
-	}
-	
 	});
+	
 		};
 		
 });

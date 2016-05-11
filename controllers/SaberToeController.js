@@ -14,9 +14,23 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
 	console.log(userData);
 	 if ($scope.isLoggedIn) {
   	var obj = $firebaseObject(Players.$getRecord(authData.uid));
-  	
-  	obj.$bindTo($scope, "dat").then(function() {
-  	
+  	$scope.dat = obj.$value;
+  
+  
+  		
+  	});
+	}
+
+
+	}
+	
+	});
+		};
+	
+
+  
+ 
+ 	
    $scope.sides = {
     '0': 'https://mamarada.club/images/cell-bg.jpg',
     '1': 'https://mamarada.club/images/obi.png',
@@ -307,20 +321,6 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
       $scope.isWin = true;
     }
   };
-  		
-  	});
-	}
-
-
-	}
-	
-	});
-		};
-	
-
-  
- 
- 
 	
 		
 });

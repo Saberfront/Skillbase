@@ -1,35 +1,7 @@
 SFApp.controller('SaberToeController', function($scope,AuthService,Players,$firebaseObject,$routeParams){
 		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 		var auth = AuthService;
-		
-		$scope.login = function(){
- auth.$authWithPassword({
-	email: $scope.email,
-	password: $scope.pass
-}).then(function(userData){
-	if(userData){
-		var authData = userData;
-		$scope.authData = authData;
-		$scope.isLoggedIn = true;
-	console.log(userData);
-	 if ($scope.isLoggedIn) {
-  	var obj = $firebaseObject(Players.$getRecord(authData.uid));
-  	$scope.dat = obj.$value;
-  
-  
-  	
-	
-
-  
- 
- 	
- 
-	
-	}
-
-
-	}
-	  $scope.sides = {
+		 $scope.sides = {
     '0': 'https://mamarada.club/images/cell-bg.jpg',
     '1': 'https://mamarada.club/images/obi.png',
     '2': 'https://mamarada.club/images/darth.png'
@@ -319,6 +291,34 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
       $scope.isWin = true;
     }
   };
+		$scope.login = function(){
+ auth.$authWithPassword({
+	email: $scope.email,
+	password: $scope.pass
+}).then(function(userData){
+	if(userData){
+		var authData = userData;
+		$scope.authData = authData;
+		$scope.isLoggedIn = true;
+	console.log(userData);
+	 if ($scope.isLoggedIn) {
+  	var obj = $firebaseObject(Players.$getRecord(authData.uid));
+  	$scope.dat = obj.$value;
+  
+  
+  	
+	
+
+  
+ 
+ 	
+ 
+	
+	}
+
+
+	}
+	 
 	});
 	
 		};

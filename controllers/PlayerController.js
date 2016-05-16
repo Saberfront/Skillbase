@@ -8,7 +8,7 @@ SFApp.controller("PlayerController",function($scope,AuthService,Players,$firebas
 		 password: $scope.pass
 		}).then(function(userData){
                 console.log(userData.uid);
-                	$scope.dat = (Players.$getRecord(userData.uid)) ? ref.child("Players").child(userData.uid) : {
+                	$scope.dat = (Players.$getRecord(userData.uid)) ? Players.$getRecord(userData.uid) : {
                 		name: "Test",
                 		about: "Lorum Ipsum Dolor",
                 		wins: 0

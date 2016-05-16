@@ -13,7 +13,7 @@ SFApp.controller("EditProfileController",function($scope,Players,$firebaseObject
   };
  auth.$onAuth(function(authData){
  		$scope.isLoggedIn = true;
- 	$scope.AuthData = authData
+ 	$scope.AuthData = authData;
  		var obj =  Players.$getRecord(authData.uid);
 	$scope.dat = obj;
 	$scope.changeUserName = function(){

@@ -6,7 +6,7 @@ SFApp.controller("EditProfileController",function($scope,Players,$firebaseObject
   $scope.login = function(){
   	auth.$authWithPassword({
   		email: $scope.email,
-  		password:$scope.password
+  		password:$scope.pass
   	}).then(function(userData){
   	
   	});

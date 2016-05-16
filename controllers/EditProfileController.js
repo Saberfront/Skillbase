@@ -5,7 +5,7 @@ SFApp.controller("EditProfileController",function($scope,Players,AuthService){
   	auth.$authWithPassword({
   		email: $scope.email,
   		password:$scope.password
-  	}).then(function(authData){
+  	}).then(function(userData){
   		$scope.isLoggedIn = true;
   	});
   }

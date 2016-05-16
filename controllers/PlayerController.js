@@ -17,7 +17,7 @@ SFApp.controller("PlayerController",function($scope,AuthService,Players,$firebas
                 		wins: 0
                 	};
                  }
-                	$scope.user = ref.child("Players").child(userData.uid);
+                	$scope.user = Players.$getRecord(userData.uid);
                 	if(!$scope.user){
                 	$scope.userObj = new $firebaseObject($scope.user);
                 	
@@ -33,7 +33,6 @@ SFApp.controller("PlayerController",function($scope,AuthService,Players,$firebas
 });
 }else{
 $scope.userObj =	Players.$getRecord(userData.uid);
-$scope.dat.wins = $scope.userObj.wins;
 }
 
                 

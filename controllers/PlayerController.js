@@ -1,23 +1,20 @@
-SFApp.controller("PlayerController",function($scope,AuthService,Players,$firebaseArray,$routeParams){
+SFApp.controller("PlayerController",function($scope,AuthService,$firebaseArray,$firebaseObject,$routeParams){
 		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 		var auth = AuthService;
-		     	$scope.auth =  auth;
-
+		$scope.auth = auth;
+		var Players = $firebaseArray(ref.child("Players"))
 	$scope.login = function(){
 		auth.$authWithPassword({
 		 email: $scope.em,
 		 password: $scope.pass
 		}).then(function(userData){
                 console.log(userData.uid);
-                 if(Players.$getRecord(userData.uid)){
-                 		$scope.dat = Players.$getRecord(userData.uid);
-                 } else {
-                	$scope.dat = {	name: "Test",
+                	$scope.dat = (ref.child("Players").child(userData.uid)) ? {
+                		name: "Test",
                 		about: "Lorum Ipsum Dolor",
                 		wins: 0
-                	};
-                 }
-                	$scope.user = Players.$getRecord(userData.uid);
+                	} : ref.child("Players").child(userData.uid);
+                	$scope.user = ref.child("Players").child(userData.uid);
                 	if(!$scope.user){
                 	$scope.userObj = new $firebaseObject($scope.user);
                 	
@@ -33,6 +30,7 @@ SFApp.controller("PlayerController",function($scope,AuthService,Players,$firebas
 });
 }else{
 $scope.userObj =	Players.$getRecord(userData.uid);
+$scope.dat.wins = $scope.userObj.wins;
 }
 
                 

@@ -83,8 +83,22 @@ after { clear: both; }
     cursor: pointer;
   }
 </style>
+<div id="login" ng-show="!isLoggedIn">
+      <form name='form-login'>
+        <span class="fontawesome-user"></span>
+          <input type="text" ng-model="email" id="user" placeholder="Username">
+       
+        <span class="fontawesome-lock"></span>
+          <input type="password" id"pass" ng-model="pass" placeholder="Password">
+        
+        <button ng-click="login()" >Login</button>
+
+</form>
+</div>
+<div ng-show="isLoggedIn">
 <form>
 <label for="username">Username:</label>
 <input type="text" name="username" id="username" ng-model="name"/>
 <button ng-click="saveUserName()">Save Name</button>
 </form>
+</div>

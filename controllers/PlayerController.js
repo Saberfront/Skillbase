@@ -1,6 +1,8 @@
 SFApp.controller("PlayerController",function($scope,AuthService,Players,$firebaseArray,$routeParams){
 		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 		var auth = AuthService;
+		     	$scope.auth =  auth;
+
 		var Players = $firebaseArray(ref.child("Players"))
 	$scope.login = function(){
 		auth.$authWithPassword({

@@ -1,4 +1,4 @@
-SFApp.controller("EditProfileController",function($scope,Players,AuthService){
+SFApp.controller("EditProfileController",function($scope,Players,$firebaseObject,AuthService){
 			var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 
      	var auth = AuthService;

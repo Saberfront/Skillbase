@@ -10,8 +10,9 @@ SFApp.controller("EditProfileController",function($scope,Players,$firebaseObject
   	}).then(function(userData){
   		$scope.isLoggedIn = true;
   	});
-  }
+  };
  auth.$onAuth(function(authData){
+ 	$scope.AuthData = authData
  		var obj =  Players.$getRecord(authData.uid);
 	$scope.dat = obj;
 	$scope.changeUserName = function(){

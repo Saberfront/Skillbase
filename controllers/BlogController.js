@@ -1,32 +1,32 @@
- SFApp.controller('BlogController', function($http){
+ SFApp.controller('BlogController', function($scope,$http){
     
-    var blog = this;
-    blog.title = "AngularJS Blog App";
+    $scope.blog = {};
+    $scope.blog.title = "AngularJS Blog App";
     
-    blog.posts = {};
+    $scope.blog.posts = {};
     $http.get('https://s3-us-west-2.amazonaws.com/s.cdpn.io/110131/posts_1.json').success(function(data){
-      blog.posts = data;
+      $scope.blog.posts = data;
     });
     
-    blog.tab = 'blog';
+    $scope.blog.tab = 'blog';
     
-    blog.selectTab = function(setTab){
-      blog.tab = setTab;
-      console.log(blog.tab)
+    $scopeblog.selectTab = function(setTab){
+      $scope.blog.tab = setTab;
+      $scope.console.log(blog.tab)
     };
     
-    blog.isSelected = function(checkTab){
-      return blog.tab === checkTab;
+    $scope.blog.isSelected = function(checkTab){
+      return $scope.blog.tab === checkTab;
     };
     
-    blog.post = {};
+    $scope.blog.post = {};
     blog.addPost = function(){
-      blog.post.createdOn = Date.now();
-      blog.post.comments = [];
-      blog.post.likes = 0;
-      blog.posts.unshift(this.post);
-      blog.tab = 0;
-      blog.post ={};
+      $scope.blog.post.createdOn = Date.now();
+       $scope.blog.post.comments = [];
+       $scope.blog.post.likes = 0;
+       $scope.blog.posts.unshift(this.post);
+       $scope.blog.tab = 0;
+       $scope.blog.post ={};
     };   
     
   });

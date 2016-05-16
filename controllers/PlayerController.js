@@ -9,11 +9,14 @@ SFApp.controller("PlayerController",function($scope,AuthService,Players,$firebas
 		 password: $scope.pass
 		}).then(function(userData){
                 console.log(userData.uid);
-                	$scope.dat = (Players.$getRecord(userData.uid)) ? Players.$getRecord(userData.uid) : {
-                		name: "Test",
+                 if(Players.$getRecord(userData.uid)){
+                 		$scope.dat = Players.$getRecord(userData.uid);
+                 } else {
+                	$scope.dat = {	name: "Test",
                 		about: "Lorum Ipsum Dolor",
                 		wins: 0
-                	} ;
+                	};
+                 }
                 	$scope.user = ref.child("Players").child(userData.uid);
                 	if(!$scope.user){
                 	$scope.userObj = new $firebaseObject($scope.user);

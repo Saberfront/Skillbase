@@ -3,7 +3,6 @@ SFApp.controller("PlayerController",function($scope,AuthService,Players,$firebas
 		var auth = AuthService;
 		     	$scope.auth =  auth;
 
-		var Players = $firebaseArray(ref.child("Players"))
 	$scope.login = function(){
 		auth.$authWithPassword({
 		 email: $scope.em,

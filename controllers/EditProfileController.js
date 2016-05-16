@@ -8,10 +8,11 @@ SFApp.controller("EditProfileController",function($scope,Players,$firebaseObject
   		email: $scope.email,
   		password:$scope.password
   	}).then(function(userData){
-  		$scope.isLoggedIn = true;
+  	
   	});
   };
  auth.$onAuth(function(authData){
+ 		$scope.isLoggedIn = true;
  	$scope.AuthData = authData
  		var obj =  Players.$getRecord(authData.uid);
 	$scope.dat = obj;

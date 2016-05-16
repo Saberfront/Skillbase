@@ -1,6 +1,6 @@
 SFApp.controller("EditProfileController",function($scope,Players,AuthService){
      	var auth = AuthService;
-
+         $scope.isLoggedIn = false;
   
  auth.$onAuth(function(authData){
  		var obj =  Players.$getRecord(authData.uid);

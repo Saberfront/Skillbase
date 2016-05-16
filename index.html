@@ -177,6 +177,10 @@ body {
       controller: 'EditProfileController',
       templateUrl: 'views/editprofile.html'
     })
+    .when('/blog',{
+      controller: 'BlogController',
+      templateUrl: 'views/blog.html'
+    })
     .otherwise({ 
       redirectTo: '/' 
     });

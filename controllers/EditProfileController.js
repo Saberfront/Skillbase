@@ -1,4 +1,4 @@
-SFApp.controller(function($scope,Players,AuthService){
+SFApp.controller("EditProfileController",function($scope,Players,AuthService){
      	var auth = AuthService;
 
   

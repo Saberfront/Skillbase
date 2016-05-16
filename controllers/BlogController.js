@@ -29,7 +29,7 @@
       blog.post ={};
     };   
     
-  }]);
+  });
   
   SFApp.controller('CommentController', function(){
     this.comment = {};

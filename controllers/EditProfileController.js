@@ -1,4 +1,6 @@
 SFApp.controller("EditProfileController",function($scope,Players,AuthService){
+			var ref = new Firebase("saberfront-skillbase.firebaseio.com");
+
      	var auth = AuthService;
          $scope.isLoggedIn = false;
   $scope.login = function(){

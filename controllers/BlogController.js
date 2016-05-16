@@ -10,7 +10,7 @@
     
     $scope.blog.tab = 'blog';
     
-    $scopeblog.selectTab = function(setTab){
+    $scope.blog.selectTab = function(setTab){
       $scope.blog.tab = setTab;
       $scope.console.log(blog.tab)
     };
@@ -20,7 +20,7 @@
     };
     
     $scope.blog.post = {};
-    blog.addPost = function(){
+$scope.blog.addPost = function(){
       $scope.blog.post.createdOn = Date.now();
        $scope.blog.post.comments = [];
        $scope.blog.post.likes = 0;

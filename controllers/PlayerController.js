@@ -8,11 +8,11 @@ SFApp.controller("PlayerController",function($scope,AuthService,$firebaseArray,$
 		 password: $scope.pass
 		}).then(function(userData){
                 console.log(userData.uid);
-                	$scope.dat = {
+                	$scope.dat = (ref.child("Players").child(userData.uid)) ? {
                 		name: "Test",
                 		about: "Lorum Ipsum Dolor",
                 		wins: 0
-                	};
+                	} : ref.child("Players").child(userData.uid);
                 	$scope.user = ref.child("Players").child(userData.uid);
                 	if(!$scope.user){
                 	$scope.userObj = new $firebaseObject($scope.user);

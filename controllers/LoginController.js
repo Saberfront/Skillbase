@@ -1,4 +1,3 @@
-SFApp.controller('LoginController',function($scope){
-
-
+SFApp.controller('LoginController',function($scope,auth){
+$scope.auth = auth;
 });

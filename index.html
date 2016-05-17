@@ -151,7 +151,12 @@ body {
         var SFApp = angular.module("SaberfrontSkills",["firebase","ngRoute","ngCookies","angular-storage","angular-jwt","auth0"]);
       
  
-        SFApp.config(function ($routeProvider) { 
+        SFApp.config(function ($routeProvider,authProvider) { 
+          authProvider.init({
+    domain: 'saberfront-game-series.auth0.com',
+    clientID: 'rukgFkgiHQozz3hBVGfz2MpQY2PVmKsT',
+    loginUrl: '/login'
+});
   $routeProvider 
     .when('/Player', { 
       controller: 'PlayerController',

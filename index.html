@@ -152,10 +152,9 @@ body {
       
  
         SFApp.config(function ($routeProvider,authProvider) { 
-          
-          authProvider.init({
-    domain: 'saberfront-game-series.auth0.com',
-    clientID: 'rukgFkgiHQozz3hBVGfz2MpQY2PVmKsT',
+      authProvider.init({
+    domain: 'saberfront-skillbase.auth0.com',
+    clientID: '8DSy60x2ff6od2wjHyDHfCmHD6kMS2jW',
     loginUrl: '/login'
 });
 authProvider.on('loginSuccess', function($location, profilePromise, idToken, store) {

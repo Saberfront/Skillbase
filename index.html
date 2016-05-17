@@ -156,7 +156,8 @@ body {
     domain: 'saberfront-game-series.auth0.com',
     clientID: 'rukgFkgiHQozz3hBVGfz2MpQY2PVmKsT',
     loginUrl: '/login'
-}).run(function(auth) {
+})
+SFApp.run(function(auth) {
   // This hooks all auth events to check everything as soon as the app starts
   auth.hookEvents();
 });

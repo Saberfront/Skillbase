@@ -216,7 +216,11 @@ SFApp.run(function(auth) {
     .when('/blog',{
       controller: 'BlogController',
       templateUrl: 'views/blog.html',
-      requiresLogin: true
+    })
+    .when('/admin',{
+      controller: 'AdminController',
+      templateUrl: 'views/admin.html',
+      requiresLog: true
     })
     .otherwise({ 
       redirectTo: '/' 
@@ -252,6 +256,10 @@ SFApp.run(function(auth) {
     <script src="controllers/LoginController.js">
       
     </script><script src="controllers/BlogController.js">
+      
+    </script>
+      </script><script src="controllers/
+      AdminController.js">
       
     </script>
 </body>

@@ -138,13 +138,15 @@ body {
     <script src="lib/angular-storage.js"></script>
     
     <script src="lib/angular-jwt.js"></script>
+    
+    <script src="lib/angular-auth0-4.js"></script>
     <script>
     PlayerNames = [
     	"Aerodos12",
     	"SaberfrontRBLX"
     	];
     
-        var SFApp = angular.module("SaberfrontSkills",["firebase","ngRoute","ngCookies","angular-storage","angular-jwt"]);
+        var SFApp = angular.module("SaberfrontSkills",["firebase","ngRoute","ngCookies","angular-storage","angular-jwt","auth0"]);
       
  
         SFApp.config(function ($routeProvider) { 

@@ -1,0 +1,266 @@
+@import url(https://fonts.googleapis.com/css?family=Orbitron:400,900);
+@charset "utf-8";
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+input {
+  border: none;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5em;
+  padding: 0;
+  -webkit-appearance: none;
+}
+
+
+after { clear: both; }
+
+#login {
+  margin: 50px auto;
+  width: 320px;
+}
+
+#login form {
+  margin: auto;
+  padding: 22px 22px 22px 22px;
+  width: 100%;
+  border-radius: 5px;
+  background: #282e33;
+  border-top: 3px solid #434a52;
+  border-bottom: 3px solid #434a52;
+}
+
+#login form span {
+  background-color: #363b41;
+  border-radius: 3px 0px 0px 3px;
+  border-right: 3px solid #434a52;
+  color: #606468;
+  display: block;
+  float: left;
+  line-height: 50px;
+  text-align: center;
+  width: 50px;
+  height: 50px;
+}
+
+#login form input[type="text"] {
+  background-color: #3b4148;
+  border-radius: 0px 3px 3px 0px;
+  color: #a9a9a9;
+  margin-bottom: 1em;
+  padding: 0 16px;
+  width: 235px;
+  height: 50px;
+}
+
+#login form input[type="password"] {
+  background-color: #3b4148;
+  border-radius: 0px 3px 3px 0px;
+  color: #a9a9a9;
+  margin-bottom: 1em;
+  padding: 0 16px;
+  width: 235px;
+  height: 50px;
+}
+
+#login button{
+  background: #b5cd60;
+  border: 0;
+  width: 100%;
+  height: 40px;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out;
+}
+#login form input[type="submit"]:hover {
+  background: #16aa56;
+}
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: 'Orbitron', sans-serif;
+}
+
+body {
+  background-image: url(https://mamarada.club/images/swbg.jpg);
+  background-repeat: repeat;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  overflow: hidden;
+}
+
+.start-screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; 
+  overflow: hidden;
+  text-align: center;
+}
+
+.start-screen p {
+  color: #ffeb3b;
+  font-weight: 400;
+  font-size: 0.8em;
+  margin-top: 15px;
+}
+.start-screen p+p {
+  color: #ffeb3b;
+  margin-top: 10px;
+}
+
+.start-screen p a {
+  color: #ffffff;
+}
+
+.start,
+.replay,
+.change {
+  display: block;
+  width: 300px;
+  height: 90px;
+  line-height: 85px;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: 3px solid #ffeb3b;
+  border-radius: 5px;
+  color: #ffeb3b;
+  font-size: 2em;
+  font-weight: 900;
+  text-align: center;
+  opacity: 1;
+  transition: all 500ms ease-in;
+}
+
+.choose-block {
+  position: relative;
+  display: block;
+  top: 0;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+h1,
+h3 {
+  color: #ffeb3b;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 0.8em;
+  font-weight: 400;
+  margin: 7px 0 10px;
+}
+
+.choose-block__links {
+  width: 100%;
+  -moz-column-count: 2;
+  -webkit-column-count: 2;
+  column-count: 2;
+  column-gap: 0;
+  -moz-column-gap: 0;
+  -webkit-column-gap: 0;
+}
+
+.choose-block__links__link {
+  display: inline-block;
+  width: 100%;
+}
+
+.choose-block__links__link img {
+  width: 100%;
+  height: auto;
+}
+
+.board {
+  position: relative;
+  display: block;
+  top: 0;
+  width: 100%;
+  max-width: 610px;
+  text-align: center;
+  -moz-column-count: 3;
+  -webkit-column-count: 3;
+  column-count: 3;
+  column-gap: 5px;
+  -moz-column-gap: 5px;
+  -webkit-column-gap: 5px;
+}
+
+.board__cell {
+  display: inline-block;
+  width: 100%;
+}
+
+.board img {
+  width: 100%;
+  height: auto;
+  transition: background-image 500ms ease-in;
+}
+
+.result {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.result h1 {
+  font-size: 3em;
+  margin: 0 0 10px;
+}
+
+.result a+a {
+  margin: 10px 0 0;
+}
+
+
+
+@media screen and (orientation: landscape) and (max-height: 610px) {
+  .choose-block h1 {
+    font-size: 1.5em;
+  }
+  
+  h3 {
+    font-size: 0.8em;
+    margin: 3px 0 5px;
+  }
+  
+  .board {
+    width: 50%;
+  }
+}

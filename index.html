@@ -220,7 +220,7 @@ SFApp.run(function(auth) {
     .when('/admin',{
       controller: 'AdminController',
       templateUrl: 'views/admin.html',
-      requiresLog: true
+      requiresLogin: true
     })
     .otherwise({ 
       redirectTo: '/' 

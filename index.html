@@ -152,11 +152,27 @@ body {
       
  
         SFApp.config(function ($routeProvider,authProvider) { 
+          
           authProvider.init({
     domain: 'saberfront-game-series.auth0.com',
     clientID: 'rukgFkgiHQozz3hBVGfz2MpQY2PVmKsT',
     loginUrl: '/login'
-})
+});
+authProvider.on('loginSuccess', function($location, profilePromise, idToken, store) {
+  console.log("Login Success");
+  profilePromise.then(function(profile) {
+    store.set('profile', profile);
+    store.set('token', idToken);
+  });
+  $location.path('/');
+});
+
+//Called when login fails
+authProvider.on('loginFailure', function() {
+  console.log("Error logging in");
+  $location.path('/login');
+});
+
 SFApp.run(function(auth) {
   // This hooks all auth events to check everything as soon as the app starts
   auth.hookEvents();

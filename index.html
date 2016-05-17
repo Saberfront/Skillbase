@@ -156,6 +156,9 @@ body {
     domain: 'saberfront-game-series.auth0.com',
     clientID: 'rukgFkgiHQozz3hBVGfz2MpQY2PVmKsT',
     loginUrl: '/login'
+})run(function(auth) {
+  // This hooks all auth events to check everything as soon as the app starts
+  auth.hookEvents();
 });
   $routeProvider 
     .when('/Player', { 
@@ -178,23 +181,26 @@ body {
     .when('/SaberToe',{
         controller: 'SaberToeController',
         templateUrl: 'views/sabertoe.html',
-         requiresLogin: true
+     
            
-    })
-    .when('/Chess',{
-      templateUrl: 'views/chess.html'
     })
     .when('/register',{
         controller: 'RegistrationController',
         templateUrl: 'views/register.html'
     })
+     .when( '/login', {
+      controller: 'LoginController',
+      templateUrl: 'templates/login.html',
+      pageTitle: 'Login'
+    });
     .when('/Player/edit',{
       controller: 'EditProfileController',
       templateUrl: 'views/editprofile.html'
     })
     .when('/blog',{
       controller: 'BlogController',
-      templateUrl: 'views/blog.html'
+      templateUrl: 'views/blog.html',
+      requiresLogin: true
     })
     .otherwise({ 
       redirectTo: '/' 

@@ -47,13 +47,13 @@
 
 <div data-role="page" id="login" ng-show="!dat">
   <div data-role="header"> <h2>Log in</h2></div>
- 
-
-  <form class="login-container">
+<div data-role="main">
+  <form >
     <p><input type="email"ng-model="em" placeholder="Email"></p>
     <p><input type="password" ng-model="pass" placeholder="Password"></p>
     <p><input type="submit" ng-click="login()" value="Log in"></p>
   </form>
+  </div>
 </div>
     </div>
     </div>

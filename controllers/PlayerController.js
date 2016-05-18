@@ -12,10 +12,22 @@ SFApp.controller("PlayerController",function($scope,AuthService,Players,$firebas
                 console.log(userData.uid);
                  if(Players.$getRecord(userData.uid)){
                  		$scope.dat = Players.$getRecord(userData.uid);
+if(!$scope.dat.champWins && $scope.dat.champLosses){
+
+$scope.dat.champWins = [0,0];
+$scope.dat.champLosses = [0,0];
+  	Players[Players.$indexFor(userData.uid)] = $scope.dat;
+  	Players.$save(Players.$indexFor(userData.uid)).then(function(ref){
+  		ref.key() === userData.uid;
+  	});
+                 }
+  
+  
                  } else {
                 	$scope.dat = {	name: "Test",
                 		about: "Lorum Ipsum Dolor",
-                		wins: 0
+                		wins: 0,
+champWins: [0,0]
                 	};
                  }
                 	$scope.user = Players.$getRecord(userData.uid);
@@ -80,23 +92,23 @@ $scope.ctx.canvas.height = 180;
  $scope.myDoughnut = new Chart($scope.ctx).Doughnut($scope.Players[0].gameStats, {});
 
  $scope.champData = {
-    labels: ["Fizz", "Garen", "Ashe", "Lee Sin"],
+    labels: ["Obi-Wan","Anakin Skywalker(Darth)"]
     datasets: [
         {
-            label: "Data",
+            label: "Wins",
             fillColor: "rgba(220,220,220,0.5)",
             strokeColor: "rgba(220,220,220,0.8)",
             highlightFill: "rgba(220,220,220,0.75)",
             highlightStroke: "rgba(220,220,220,1)",
-            data: [65, 59, 80, 81]
+            data: $scope.dat.champWins
         },
         {
-            label: "Data 2",
+            label: "Losses",
             fillColor: "rgba(151,187,205,0.5)",
             strokeColor: "rgba(151,187,205,0.8)",
             highlightFill: "rgba(151,187,205,0.75)",
             highlightStroke: "rgba(151,187,205,1)",
-            data: [28, 48, 40, 19]
+            data: $scope.dat.champLosses
         }
     ]
 };

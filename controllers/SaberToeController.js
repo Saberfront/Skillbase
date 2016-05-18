@@ -297,7 +297,8 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,Hapti
         
        
       	$scope.dat.wins += 1;
-       $scope.dat.champWins[parseInt($scope.side)-1] += 1;
+$scope.underside = parseInt($scope.side);
+       $scope.dat.champWins[$scope.underside-1] += 1;
       	console.log($scope.dat.wins);
       	
   	    HapticService.StartVibrate(600);

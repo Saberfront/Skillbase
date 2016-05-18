@@ -170,7 +170,8 @@ authProvider.on('loginFailure', function() {
   console.log("Error logging in");
   $location.path('/login');
 });
-
+$.mobile.linkBindingEnabled = false;
+$.mobile.hashListeningEnabled = false;
 SFApp.run(function(auth) {
   // This hooks all auth events to check everything as soon as the app starts
   auth.hookEvents();

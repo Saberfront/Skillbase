@@ -3,9 +3,6 @@
 <title>Saberfront Skillbase</title>
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#363363"/>
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.1/Chart.min.js"></script>
-<script src="http://lab.nearpod.com/bodymovin/demo/piggy/bodymovin.js"></script>
 
 <script src="lib/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
@@ -14,7 +11,151 @@
 <link rel="stylesheet" href="lib/jQm/jquery.mobile.theme-1.4.5.min.css"/>
 <link rel="stylesheet" href="lib/jQm/jquery.mobile.structure-1.4.5.min.css"/>
 </head>
-<body>
-  
+<body ng-app="SaberfrontSkills">
+    <div><h2>Skillbase!</h2></div>
+    <div ng-view></div>
+    
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angularfire.min.js"></script>
+    <script src="lib/angular-route.js"></script>
+    
+    <script src="lib/angular-cookies.js"></script>
+    <script src="lib/angular-storage.js"></script>
+    
+    <script src="lib/angular-jwt.js"></script>
+    <script src="lib/lock-7.12.min.js"></script>
+    <script src="lib/auth0-angular-4.js"></script>
+    <script>
+  var md = new MobileDetect(window.navigator.userAgent);
+    
+        var SFApp = angular.module("SaberfrontSkills",["firebase","ngRoute","ngCookies","angular-storage","angular-jwt","auth0"]);
+      
+ 
+        SFApp.config(function ($routeProvider,authProvider) { 
+      authProvider.init({
+    domain: 'saberfront-skillbase.auth0.com',
+    clientID: '8DSy60x2ff6od2wjHyDHfCmHD6kMS2jW',
+    loginUrl: '/login'
+});
+authProvider.on('loginSuccess', function($location, profilePromise, idToken, store) {
+  console.log("Login Success");
+  profilePromise.then(function(profile) {
+    store.set('profile', profile);
+    store.set('token', idToken);
+  });
+  $location.path('/');
+});
+
+//Called when login fails
+authProvider.on('loginFailure', function() {
+  console.log("Error logging in");
+  $location.path('/login');
+});
+
+SFApp.run(function(auth) {
+  // This hooks all auth events to check everything as soon as the app starts
+  auth.hookEvents();
+});
+  $routeProvider 
+    .when('/Player', { 
+      controller: 'PlayerController',
+      templateUrl: 'views/players.html',
+       resolve: {
+    // controller will not be loaded until $waitForAuth resolves
+    // Auth refers to our $firebaseAuth wrapper in the example above
+    "currentAuth": function(AuthService) {
+      // $waitForAuth returns a promise so the resolve waits for it to complete
+      return AuthService.$waitForAuth();
+    }
+  }
+      
+    }) 
+    .when("/Player/mobile",{
+      controller: "PlayerController",
+      templateUrl: "views/players-mobile.html"
+    })
+     .when('/Skills',{
+        controller: 'SkillsController',
+        templateUrl: 'views/skills.html'
+    })
+    .when('/SaberToe',{
+        controller: 'SaberToeController',
+        templateUrl: 'views/sabertoe.html',
+     
+           
+    })
+    .when('/register',{
+        controller: 'RegistrationController',
+        templateUrl: 'views/register.html'
+    })
+     .when( '/login', {
+      controller: 'LoginController',
+      templateUrl: 'views/login.html',
+      pageTitle: 'Login'
+    })
+    .when('/Player/edit',{
+      controller: 'EditProfileController',
+      templateUrl: 'views/editprofile.html'
+    })
+    .when('/blog',{
+      controller: 'BlogController',
+      templateUrl: 'views/blog.html',
+    })
+    .when('/admin',{
+      controller: 'AdminController',
+      templateUrl: 'views/admin.html',
+      requiresLogin: true
+    })
+    .otherwise({ 
+      redirectTo: '/' 
+    });
+   
+});
+SFApp.directive('jqm', function($timeout) {
+  return {
+    link: function(scope, elm, attr) {
+        $timeout(function(){
+            elm.trigger('create');
+        });
+    }
+  };
+});
+
+     
+           
+    </script>
+    
+                <script src="services/Players.js"></script>
+
+        <script src="services/AuthService.js"></script>
+        
+        <script src="services/HapticService.js"></script>
+    <script src="controllers/PlayerController.js">
+    
+    </script>
+    
+    <script src="controllers/SkillsController.js">
+    
+    </script>
+    
+    
+
+     <script src="controllers/SaberToeController.js">
+    
+    </script>
+     <script src="controllers/RegistrationController.js">
+    
+    </script>
+    <script src="controllers/EditProfileController.js">
+      
+    </script>   
+    <script src="controllers/LoginController.js">
+      
+    </script><script src="controllers/BlogController.js">
+      
+    </script>
+      </script><script src="controllers/AdminController.js">
+      
+    </script>
 </body>
 </html>

@@ -12,7 +12,7 @@ SFApp.controller("PlayerController",function($scope,AuthService,Players,$firebas
                 console.log(userData.uid);
                  if(Players.$getRecord(userData.uid)){
                  		$scope.dat = Players.$getRecord(userData.uid);
-if(!$scope.dat.champWins && $scope.dat.champLosses){
+if(!$scope.dat.champWins && !$scope.dat.champLosses){
 
 $scope.dat.champWins = [0,0];
 $scope.dat.champLosses = [0,0];

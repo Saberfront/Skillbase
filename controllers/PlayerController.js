@@ -1,8 +1,5 @@
 SFApp.controller("PlayerController",function($scope,AuthService,Players,$firebaseArray,$routeParams){
-	if ($.mobile){
-		$.mobile.linkBindingEnabled = false;
-$.mobile.hashListeningEnabled = false;
-	}
+
 		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 		var auth = AuthService;
 		     	$scope.auth =  auth;

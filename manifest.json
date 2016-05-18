@@ -1,5 +1,9 @@
 {
+"short_name":"SFSkillbase",
+"name":"Saberfront Skillbase",
 
+"theme_color": "#363533",
+"start_url":"index.html"
 
 
 }

@@ -178,7 +178,7 @@ SFApp.run(function(auth) {
   $routeProvider 
     .when('/Player', { 
       controller: 'PlayerController',
-      templateUrl: ( md.is('Android')) ? 'views/players-mobile.html' : 'views/players.html',
+      templateUrl: 'views/players.html',
        resolve: {
     // controller will not be loaded until $waitForAuth resolves
     // Auth refers to our $firebaseAuth wrapper in the example above
@@ -189,6 +189,10 @@ SFApp.run(function(auth) {
   }
       
     }) 
+    .when("Players/mobile",{
+      controller: "PlayerController",
+      templateUrl: "views/players-mobile.html"
+    })
      .when('/Skills',{
         controller: 'SkillsController',
         templateUrl: 'views/skills.html'

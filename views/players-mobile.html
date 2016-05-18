@@ -45,10 +45,9 @@
   </div>
 </div>
 
-<div class="login" ng-show="!dat">
-  <div class="login-triangle"></div>
-  
-  <h2 class="login-header">Log in</h2>
+<div data-role="page" id="login" ng-show="!dat">
+  <div data-role="header"> <h2>Log in</h2></div>
+ 
 
   <form class="login-container">
     <p><input type="email"ng-model="em" placeholder="Email"></p>

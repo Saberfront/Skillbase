@@ -1,0 +1,226 @@
+<style>
+    @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,500,700);
+* {
+  box-sizing: border-box;
+}
+button{
+      background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+html,
+body {
+  margin: 25;
+  padding: 25;
+  font-family: 'Roboto', sans-serif;
+}
+body {
+  background: #FCFCFC;
+}
+.content {
+  min-width: 1000px;
+  width: 60%;
+  max-width: 1200px;
+  height: 440px;
+  background: #222;
+  border-radius: 6px;
+  margin: 20px auto;
+  margin-bottom: 25px;
+}
+.stats {
+  height: 200px;
+}
+.col {
+  width: 33.33%;
+  height: 200px;
+  float: left;
+  padding: 10px;
+  position: relative;
+}
+.middle:before,
+.middle:after {
+  content: "";
+  height: 80%;
+  border: 1px solid #333;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.middle:before {
+  left: 0;
+}
+.middle:after {
+  right: 0;
+}
+.matchStats {
+  float: right;
+  width: 300px;
+  height: 240px;
+  position: relative;
+}
+#gameStats,
+#roleStats {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 20px;
+  margin: auto;
+}
+#champData {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: -10px;
+  margin: auto;
+}
+#timeData {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+.mainInfo {
+  height: 240px;
+  padding: 20px;
+  width: calc(100% - 600px);
+  float: left;
+}
+.mainInfo span {
+  color: #999;
+}
+.mainInfo .aboutMe {
+  font-size: 12px;
+  color: #999;
+}
+h1 {
+  color: #fff;
+  font-size: 40px;
+  margin: 0;
+  padding: 0;
+}
+h2 {
+  color: #FDB45C;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+  margin-left: 5px;
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 10px;
+}
+h3 {
+  display: block;
+  font-size: 24px;
+  margin: 0;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  border-bottom: 2px solid #333;
+  color: #FDB45C;
+}
+.clearFix {
+  clear: both;
+}
+.playerStats {
+  margin: auto;
+  padding: 0;
+  list-style: none;
+  margin: 6px;
+}
+.playerStats li {
+  display: block;
+  height: 30px;
+  line-height: 30px;
+  color: #fff;
+}
+.playerStats li span {
+  display: inline-block;
+  width: 60%;
+  color: #999;
+}
+.backgroundText {
+  width: 100%;
+  height: 100%;
+  font-size: 56px;
+  color: rgba(255, 255, 255, 0.2);
+  transform: rotate(-90deg);
+  text-transform: uppercase;
+  letter-spacing: 0px;
+  text-align: center;
+}
+.resizing {
+  position: relative;
+  width: 90%;
+  height: 100%;
+  padding: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  bottom: 0;
+}
+</style>
+
+        <div class="content" ng-show="dat">
+  <div class="mainInfo">
+    <h1>{{ dat.name }}</h1>
+    <span>Europe West</span>
+    <div class="aboutMe">
+      <h3>About</h3>
+     {{dat.about}}    </div>
+  </div>
+  <div class="matchStats">
+    <div class="backgroundText">Games</div>
+    <canvas id="gameStats" width="180" height="180"/>
+  </div>
+
+  <div class="matchStats">
+    <div class="backgroundText">Roles</div>
+    <canvas id="roleStats" width="180" height="180"/>
+  </div>
+
+  <div class="clearFix"></div>
+
+  <div class="col">
+    <h2>Favourite Champion</h2>
+    <div class="resizing">
+      <canvas id="champData"/>
+    </div>
+  </div>
+  <div class="col middle">
+    <h2>Time Played</h2>
+    <div class="resizing">
+      <canvas id="timeData"/>
+    </div>
+  </div>
+  <div class="col">
+    <h2>Stats</h2>
+    <ul class="playerStats">
+      <li><span>Battle Wins:</span>{{dat.wins}}</li>
+      <li><span>Overall K/D:</span> 8.45</li>
+      <li><span>Minion Kills:</span> 345,428</li>
+      <li><span>Turrents Destroyed:</span> 2,350</li>
+      <li><span>Gold Collected:</span> 2,486,934</li>
+    </ul>
+  </div>
+</div>
+
+<div class="login" ng-show="!dat">
+  <div class="login-triangle"></div>
+  
+  <h2 class="login-header">Log in</h2>
+
+  <form class="login-container">
+    <p><input type="email"ng-model="em" placeholder="Email"></p>
+    <p><input type="password" ng-model="pass" placeholder="Password"></p>
+    <p><input type="submit" ng-click="login()" value="Log in"></p>
+  </form>
+</div>
+    </div>

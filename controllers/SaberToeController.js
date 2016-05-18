@@ -1,4 +1,4 @@
-SFApp.controller('SaberToeController', function($scope,AuthService,Players,$firebaseObject,$routeParams){
+SFApp.controller('SaberToeController', function($scope,AuthService,Players,HapticService,$firebaseObject,$routeParams){
 		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 
 		var auth = AuthService;
@@ -120,6 +120,8 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
   $scope.lose = function() {
     $scope.myTurn = false;
     $scope.isLose = true;
+        HapticService.StartVibrate(400);
+
     console.log('You lose!');
   };
   
@@ -127,7 +129,9 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
   $scope.draw = function() {
     $scope.isDraw = true;
     $scope.myTurn = false;
-    console.log('Draw!')
+    console.log('Draw!');
+        HapticService.StartVibrate(200);
+
   };
   
   
@@ -291,7 +295,8 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,$fire
       
       	console.log($scope.dat.wins);
       	
-  	
+  	    HapticService.StartVibrate(600);
+
   
   	Players[Players.$indexFor(authData.uid)] = $scope.dat;
   	Players.$save(Players.$indexFor(authData.uid)).then(function(ref){

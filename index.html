@@ -230,6 +230,16 @@ SFApp.run(function(auth) {
     });
    
 });
+SFApp.directive('jqm', function($timeout) {
+  return {
+    link: function(scope, elm, attr) {
+        $timeout(function(){
+            elm.trigger('create');
+        });
+    }
+  };
+});
+
      
            
     </script>

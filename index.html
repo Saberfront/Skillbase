@@ -9,7 +9,7 @@
 <script src="http://lab.nearpod.com/bodymovin/demo/piggy/bodymovin.js"></script>
 <script src="lib/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
+<script src="lib/mobile-detect.js"></script>
 <style>
 /**
  * 01/28/2016
@@ -145,10 +145,7 @@ body {
     <script src="lib/lock-7.12.min.js"></script>
     <script src="lib/auth0-angular-4.js"></script>
     <script>
-    PlayerNames = [
-    	"Aerodos12",
-    	"SaberfrontRBLX"
-    	];
+  var md = new MobileDetect(window.navigator.userAgent);
     
         var SFApp = angular.module("SaberfrontSkills",["firebase","ngRoute","ngCookies","angular-storage","angular-jwt","auth0"]);
       
@@ -181,7 +178,7 @@ SFApp.run(function(auth) {
   $routeProvider 
     .when('/Player', { 
       controller: 'PlayerController',
-      templateUrl: 'views/players.html',
+      templateUrl: ( md.is('mobile')) ? 'views/players-mobile.html' : 'views/players.html',
        resolve: {
     // controller will not be loaded until $waitForAuth resolves
     // Auth refers to our $firebaseAuth wrapper in the example above

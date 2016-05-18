@@ -1,7 +1,13 @@
 {
 "short_name":"SFSkillbase",
 "name":"Saberfront Skillbase",
-
+"icons": [
+    {
+      "src": "img/Saberfront.png",
+      "sizes": "36x36",
+      "type": "image/png",
+      "density": 0.75
+    }],
 "theme_color": "#363533",
 "start_url":"/Skillbase/#/"
  

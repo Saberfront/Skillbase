@@ -1,4 +1,4 @@
-SFApp.controller('BlogController', function($scope,BlogService,Players,AuthService,$firebaseArray,$http){
+SFApp.controller('BlogController', function($scope,BlogService,$firebaseArray,$http){
     var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 
 		var auth = AuthService;
@@ -23,14 +23,11 @@ SFApp.controller('BlogController', function($scope,BlogService,Players,AuthServi
     };
     
     $scope.blog.post = {};
-      
- auth.$onAuth(function(authData){
- 		var obj =  Players.$getRecord(authData.uid);
 $scope.blog.addPost = function(){
       $scope.blog.post.createdOn = Date.now();
        $scope.blog.post.comments = [""];
        $scope.blog.post.likes = 0;
-       $scope.blog.author = obj.name;
+       
        BlogService.$add($scope.blog.post).then(function(ref){
        });
        $scope.blog.posts.unshift(this.post);
@@ -38,7 +35,6 @@ $scope.blog.addPost = function(){
        
        
     };   
- });
     	$scope.login = function(){
  auth.$authWithPassword({
 	email: $scope.email,
@@ -73,14 +69,14 @@ $scope.blog.addPost = function(){
 	};
   });
   
-  SFApp.controller('CommentController', function($scope,AuthService,Players,BlogService){
+  SFApp.controller('CommentController', function($scope,BlogService){
     this.comment = {};
     this.addComment = function(post){
      var befpost = post;
       this.comment.createdOn = Date.now();
       post.comments.unshift(this.comment);
           BlogService[BlogService.$indexFor(BlogService.$keyAt(befpost))] = post;
-      BlogService.$save(BlogService.$inder(BlogService.$keyAt(post))).then(function(ref){
+      BlogService.$save(BlogService.$indexFor(BlogService.$keyAt(post))).then(function(ref){
        
       });
     

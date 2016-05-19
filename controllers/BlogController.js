@@ -80,7 +80,7 @@ $scope.blog.addPost = function(){
       this.comment.createdOn = Date.now();
       post.comments.unshift(this.comment);
           BlogService[BlogService.$indexFor(BlogService.$keyAt(befpost))] = post;
-      BlogService.$save(BlogService.$indexFor(BlogService.$keyAt(post))).then(function(ref){
+      BlogService.$save(BlogService.$inder(BlogService.$keyAt(post))).then(function(ref){
        
       });
     

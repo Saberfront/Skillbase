@@ -277,7 +277,7 @@ img {
         <div class="post" ng-show="blog.isSelected('new') && isLoggedIn" >
           <h2>Add New Post</h2>
           
-          <form name="postForm" ng-submit=" blog.addPost()" novalidate>
+          <form name="postForm" ng-submit=" blog.addPost()" novalidate ng-show="isLoggedIn"">
                   <h4>Title</h4>
                   <input type="text" ng-model="blog.post.title"/>
                   <h4>Body</h4>

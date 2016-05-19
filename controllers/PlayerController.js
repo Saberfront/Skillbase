@@ -92,7 +92,7 @@ $scope.ctx.canvas.height = 180;
  $scope.myDoughnut = new Chart($scope.ctx).Doughnut($scope.Players[0].gameStats, {});
 
  $scope.champData = {
-    labels: ["Obi-Wan","Anakin Skywalker(Darth)"],
+    labels: ["Obi-Wan","Vader"],
     datasets: [
         {
             label: "Wins",

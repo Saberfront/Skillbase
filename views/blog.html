@@ -165,7 +165,7 @@ img {
       
       <div class="content">
         <div class="container">
-          <div class="row">
+          <div class="row" ng-show="isLoggedIn">
             <ul class="post-grid" ng-show="blog.isSelected('blog')">
           <li ng-repeat="post in blog.posts" class="col-s-4" ng-class="{ 'reset-s' : $index%3==0 }" ng-click="blog.selectTab($index)" >
             <h3>{{post.title}}</h3>
@@ -187,7 +187,7 @@ img {
              </p> 
             </div>
             
-            <div class="comments" ng-controller="CommentController as commentCtrl">
+            <div class="comments" ng-controller="CommentController as commentCtrl" ng-show="isLoggedIn">
               <button class='pulsebutton' ng-click="post.likes = post.likes+1">
   <div class="text">Like +<span id="value">{{post.likes}}</span></div>
   </button>
@@ -205,14 +205,14 @@ img {
                 <h4>Add Comment</h4>
                   <textarea ng-model="commentCtrl.comment.body" cols="30" rows="10" required></textarea>
                 <label for="">by:</label>
-                  <input type="text" ng-model="commentCtrl.comment.author" required placeholder="Name"/>
+                
                   
                   <input type="submit" value="Submit" />
                 </form>
             </div>
         </div>
       </div>
-        <div class="post" ng-show="blog.isSelected('new')">
+        <div class="post" ng-show="blog.isSelected('new') && isLoggedIn" >
           <h2>Add New Post</h2>
           
           <form name="postForm" ng-submit=" blog.addPost()" novalidate>
@@ -223,7 +223,7 @@ img {
                   <label for="">Featured Image URL</label>
                   <input type="text" ng-model="blog.post.image" placeholder="http://placekitten.com/g/2000/600" />
                   <label for="">by:</label>
-                  <input type="text" ng-model="blog.post.author" placeholder="Author Name" required/>
+                  
                   
                   <input type="submit" value="Submit" />
                 </select></form>
@@ -231,6 +231,18 @@ img {
             </div>
             
           </div>
+            <div id="login" ng-show="!isLoggedIn">
+      <form name='form-login'>
+        <span class="fontawesome-user"></span>
+          <input type="text" ng-model="email" id="user" placeholder="Username">
+       
+        <span class="fontawesome-lock"></span>
+          <input type="password" id"pass" ng-model="pass" placeholder="Password">
+        
+        <button ng-click="login()" >Login</button>
+
+</form>
+</div>
         </div>
         
     </div>

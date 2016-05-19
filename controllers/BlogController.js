@@ -35,10 +35,41 @@ $scope.blog.addPost = function(){
        
        
     };   
-    
+    	$scope.login = function(){
+ auth.$authWithPassword({
+	email: $scope.email,
+	password: $scope.pass
+}).then(function(userData){
+	if(userData){
+		var authData = userData;
+		$scope.authData = authData;
+		$scope.isLoggedIn = true;
+	console.log(userData);
+
+  
+  
+  
+  	
+	
+
+  
+ 
+ 	
+ 
+	
+	}
+
+
+
+	
+	
+	
+		
+});
+	};
   });
   
-  SFApp.controller('CommentController', function(BlogService){
+  SFApp.controller('CommentController', function($scope,BlogService){
     this.comment = {};
     this.addComment = function(post){
      var befpost = post;
@@ -52,4 +83,36 @@ $scope.blog.addPost = function(){
       this.comment ={};
       
     };
+    	$scope.login = function(){
+ auth.$authWithPassword({
+	email: $scope.email,
+	password: $scope.pass
+}).then(function(userData){
+	if(userData){
+		var authData = userData;
+		$scope.authData = authData;
+		$scope.isLoggedIn = true;
+	console.log(userData);
+
+  
+  
+  
+  	
+	
+
+  
+ 
+ 	
+ 
+	
+	}
+
+
+
+	
+	
+	
+		
+});
+	};
   });

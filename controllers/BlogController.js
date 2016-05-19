@@ -26,7 +26,10 @@ $scope.blog.addPost = function(){
        $scope.blog.post.likes = 0;
        
        BlogService.$add($scope.blog.post).then(function(ref){
+          $scope.blog.comments = $firebaseArray($scope.blog.post.comments);
+          
        });
+  
        $scope.blog.posts.unshift(this.post);
        $scope.blog.tab = 0;
        
@@ -41,6 +44,9 @@ $scope.blog.addPost = function(){
       this.comment.createdOn = Date.now();
       post.comments.push(this.comment);
       this.comment ={};
+   $scope.blog.comments.$add(this.comment).then(function(ref){
+    
+   });
     };
   });
  

@@ -146,11 +146,6 @@ body {
     <script src="lib/lock-7.12.min.js"></script>
     <script src="lib/auth0-angular-4.js"></script>
     <script>
-  var md = new MobileDetect(window.navigator.userAgent);
-    	if ($.mobile){
-		$.mobile.linkBindingEnabled = false;
-$.mobile.hashListeningEnabled = false;
-	}
         var SFApp = angular.module("SaberfrontSkills",["firebase","ngRoute","ngCookies","angular-storage","angular-jwt","auth0"]);
       
  

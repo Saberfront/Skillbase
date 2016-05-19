@@ -6,68 +6,6 @@
 html {
   font-size: 18px;
 }
-
-#login {
-  margin: 50px auto;
-  width: 320px;
-}
-
-#login form {
-  margin: auto;
-  padding: 22px 22px 22px 22px;
-  width: 100%;
-  border-radius: 5px;
-  background: #282e33;
-  border-top: 3px solid #434a52;
-  border-bottom: 3px solid #434a52;
-}
-
-#login form span {
-  background-color: #363b41;
-  border-radius: 3px 0px 0px 3px;
-  border-right: 3px solid #434a52;
-  color: #606468;
-  display: block;
-  float: left;
-  line-height: 50px;
-  text-align: center;
-  width: 50px;
-  height: 50px;
-}
-
-#login form input[type="text"] {
-  background-color: #3b4148;
-  border-radius: 0px 3px 3px 0px;
-  color: #a9a9a9;
-  margin-bottom: 1em;
-  padding: 0 16px;
-  width: 235px;
-  height: 50px;
-}
-
-#login form input[type="password"] {
-  background-color: #3b4148;
-  border-radius: 0px 3px 3px 0px;
-  color: #a9a9a9;
-  margin-bottom: 1em;
-  padding: 0 16px;
-  width: 235px;
-  height: 50px;
-}
-
-#login button{
-  background: #b5cd60;
-  border: 0;
-  width: 100%;
-  height: 40px;
-  border-radius: 3px;
-  color: white;
-  cursor: pointer;
-  transition: background 0.3s ease-in-out;
-}
-#login form input[type="submit"]:hover {
-  background: #16aa56;
-}
 .text, .hover {
   color: white;
   font-family: 'Lato';
@@ -80,13 +18,11 @@ html {
 .text span, .hover span {
   font-weight: 300;
 }
-
 .hover {
   color: #1a1a1a;
   margin-top: -50px;
   margin-bottom: 25px;
 }
-
 .pulsebutton {
   border-radius: 50%;
   border: 4px solid;
@@ -200,7 +136,6 @@ textarea {
 img {
   max-width: 100%;
 }
-
 </style>
 
       <div class="topbar">
@@ -227,7 +162,7 @@ img {
       
       <div class="content">
         <div class="container">
-          <div class="row" ng-show="isLoggedIn">
+          <div class="row">
             <ul class="post-grid" ng-show="blog.isSelected('blog')">
           <li ng-repeat="post in blog.posts" class="col-s-4" ng-class="{ 'reset-s' : $index%3==0 }" ng-click="blog.selectTab($index)" >
             <h3>{{post.title}}</h3>
@@ -249,7 +184,7 @@ img {
              </p> 
             </div>
             
-            <div class="comments" ng-controller="CommentController as commentCtrl" ng-show="isLoggedIn">
+            <div class="comments" ng-controller="CommentController as commentCtrl">
               <button class='pulsebutton' ng-click="post.likes = post.likes+1">
   <div class="text">Like +<span id="value">{{post.likes}}</span></div>
   </button>
@@ -267,17 +202,17 @@ img {
                 <h4>Add Comment</h4>
                   <textarea ng-model="commentCtrl.comment.body" cols="30" rows="10" required></textarea>
                 <label for="">by:</label>
-                
+                  <input type="text" ng-model="commentCtrl.comment.author" required placeholder="Name"/>
                   
                   <input type="submit" value="Submit" />
                 </form>
             </div>
         </div>
       </div>
-        <div class="post" ng-show="blog.isSelected('new') && isLoggedIn" >
+        <div class="post" ng-show="blog.isSelected('new')">
           <h2>Add New Post</h2>
           
-          <form name="postForm" ng-submit=" blog.addPost()" novalidate ng-show="isLoggedIn"">
+          <form name="postForm" ng-submit=" blog.addPost()" novalidate>
                   <h4>Title</h4>
                   <input type="text" ng-model="blog.post.title"/>
                   <h4>Body</h4>
@@ -285,7 +220,7 @@ img {
                   <label for="">Featured Image URL</label>
                   <input type="text" ng-model="blog.post.image" placeholder="http://placekitten.com/g/2000/600" />
                   <label for="">by:</label>
-                  
+                  <input type="text" ng-model="blog.post.author" placeholder="Author Name" required/>
                   
                   <input type="submit" value="Submit" />
                 </select></form>
@@ -293,18 +228,6 @@ img {
             </div>
             
           </div>
-            <div id="login" ng-show="!isLoggedIn">
-      <form name='form-login'>
-        <span class="fontawesome-user"></span>
-          <input type="text" ng-model="email" id="user" placeholder="Username">
-       
-        <span class="fontawesome-lock"></span>
-          <input type="password" id"pass" ng-model="pass" placeholder="Password">
-        
-        <button ng-click="login()" >Login</button>
-
-</form>
-</div>
         </div>
         
     </div>

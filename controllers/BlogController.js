@@ -35,7 +35,7 @@ $scope.blog.addPost = function(){
     
   });
   
-  SFApp.controller('CommentController', function(){
+  SFApp.controller('CommentController', function(BlogService){
     this.comment = {};
     this.addComment = function(post){
      var befpost = post;

@@ -40,13 +40,13 @@ $scope.blog.addPost = function(){
     this.addComment = function(post){
      var befpost = post;
       this.comment.createdOn = Date.now();
-      post.comments.$add(this.comment).then(function(){
-          
-      });
-      this.comment ={};
-      BlogService[BlogService.$indexFor(BlogService.keyAt(befpost))] = post;
+      post.comments.push(this.comment);
+          BlogService[BlogService.$indexFor(BlogService.keyAt(befpost))] = post;
       BlogService.$save(BlogService.$indexFor(BlogService.keyAt(post))).then(function(ref){
        
       });
+    
+      this.comment ={};
+      
     };
   });

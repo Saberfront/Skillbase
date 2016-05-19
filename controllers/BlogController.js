@@ -1,4 +1,4 @@
-SFApp.controller('BlogController', function($scope,BlogService,$firebaseArray,$http){
+SFApp.controller('BlogController', function($scope,BlogService,AuthService,$firebaseArray,$http){
     var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 
 		var auth = AuthService;

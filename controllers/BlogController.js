@@ -1,12 +1,12 @@
  SFApp.controller('BlogController', function($scope,BlogService,$http){
     
     $scope.blog = {};
-    $scope.blog.title = "AngularJS Blog App";
+    $scope.blog.title = "Saberfront Skillbase Blog";
     
     $scope.blog.posts = {};
-    $http.get('https://s3-us-west-2.amazonaws.com/s.cdpn.io/110131/posts_1.json').success(function(data){
-      $scope.blog.posts = data;
-    });
+    
+      $scope.blog.posts = BlogService;
+
     
     $scope.blog.tab = 'blog';
     

@@ -22,7 +22,7 @@ SFApp.controller('BlogController', function($scope,BlogService,$firebaseArray,$h
     $scope.blog.post = {};
 $scope.blog.addPost = function(){
       $scope.blog.post.createdOn = Date.now();
-       $scope.blog.post.comments = $firebaseArray([]);
+       $scope.blog.post.comments = [""];
        $scope.blog.post.likes = 0;
        
        BlogService.$add($scope.blog.post).then(function(ref){

@@ -1,4 +1,4 @@
- SFApp.controller('BlogController', function($scope,$http){
+ SFApp.controller('BlogController', function($scope,BlogService,$http){
     
     $scope.blog = {};
     $scope.blog.title = "AngularJS Blog App";
@@ -24,9 +24,13 @@ $scope.blog.addPost = function(){
       $scope.blog.post.createdOn = Date.now();
        $scope.blog.post.comments = [];
        $scope.blog.post.likes = 0;
+       
+       BlogService.$add($scope.blog.post).then(function(ref){
+       });
        $scope.blog.posts.unshift(this.post);
        $scope.blog.tab = 0;
-       $scope.blog.post ={};
+       
+       
     };   
     
   });

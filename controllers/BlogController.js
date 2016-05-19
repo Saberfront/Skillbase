@@ -23,11 +23,14 @@ SFApp.controller('BlogController', function($scope,BlogService,$firebaseArray,$h
     };
     
     $scope.blog.post = {};
+      
+ auth.$onAuth(function(authData){
+ 		var obj =  Players.$getRecord(authData.uid);
 $scope.blog.addPost = function(){
       $scope.blog.post.createdOn = Date.now();
        $scope.blog.post.comments = [""];
        $scope.blog.post.likes = 0;
-       
+       $scope.blog.author = obj.name;
        BlogService.$add($scope.blog.post).then(function(ref){
        });
        $scope.blog.posts.unshift(this.post);
@@ -35,6 +38,7 @@ $scope.blog.addPost = function(){
        
        
     };   
+ });
     	$scope.login = function(){
  auth.$authWithPassword({
 	email: $scope.email,

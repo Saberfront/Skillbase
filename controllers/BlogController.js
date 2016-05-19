@@ -40,7 +40,7 @@ $scope.blog.addPost = function(){
     this.addComment = function(post){
      var befpost = post;
       this.comment.createdOn = Date.now();
-      post.comments.push(this.comment);
+      post.comments[(post.comments.length + 1)-1] = this.comment;
           BlogService[BlogService.$indexFor(BlogService.keyAt(befpost))] = post;
       BlogService.$save(BlogService.$indexFor(BlogService.keyAt(post))).then(function(ref){
        

@@ -120,7 +120,7 @@ SFApp.controller('SaberToeController', function($scope,AuthService,Players,Hapti
   $scope.lose = function() {
     $scope.myTurn = false;
     $scope.isLose = true;
-        HapticService.StartVibrate(400);    $scope.dat.champLose[parseInt($scope.side)-1] += 1;  	Players[Players.$indexFor(authData.uid)] = $scope.dat;
+        HapticService.StartVibrate(400);    $scope.dat.champLose[new Number($scope.side)-1] += 1;  	Players[Players.$indexFor(authData.uid)] = $scope.dat;
   	Players.$save(Players.$indexFor(authData.uid)).then(function(ref){
   		ref.key() === authData.uid;
   	});

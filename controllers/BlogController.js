@@ -47,4 +47,5 @@ $scope.blog.addPost = function(){
       });
     
       this.comment ={};
+    };
     });

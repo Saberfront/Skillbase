@@ -1,5 +1,8 @@
 SFApp.controller('BlogController', function($scope,BlogService,$firebaseArray,$http){
-    
+    var ref = new Firebase("saberfront-skillbase.firebaseio.com");
+
+		var auth = AuthService;
+	
     $scope.blog = {};
     $scope.blog.title = "Saberfront Skillbase Blog";
     

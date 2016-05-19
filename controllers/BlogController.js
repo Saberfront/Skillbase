@@ -1,4 +1,4 @@
-SFApp.controller('BlogController', function($scope,BlogService,$http){
+SFApp.controller('BlogController', function($scope,BlogService,$firebaseArray,$http){
     
     $scope.blog = {};
     $scope.blog.title = "Saberfront Skillbase Blog";

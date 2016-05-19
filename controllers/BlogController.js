@@ -12,7 +12,7 @@
     
     $scope.blog.selectTab = function(setTab){
       $scope.blog.tab = setTab;
-      $scope.console.log($scope.blog.tab)
+     console.log($scope.blog.tab)
     };
     
     $scope.blog.isSelected = function(checkTab){

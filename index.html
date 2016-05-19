@@ -224,6 +224,10 @@ SFApp.run(function(auth) {
       templateUrl: 'views/admin.html',
       requiresLogin: true
     })
+    .when('/heroes',{
+      controller: "HeroController",
+      templateUrl: "views/herocards.html"
+    })
     .otherwise({ 
       redirectTo: '/' 
     });
@@ -274,6 +278,9 @@ SFApp.directive('jqm', function($timeout) {
       
     </script>
       </script><script src="controllers/AdminController.js">
+      
+    </script>
+    <script src="controllers/HeroController.js">
       
     </script>
 </body>

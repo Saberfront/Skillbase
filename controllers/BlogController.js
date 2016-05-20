@@ -57,6 +57,6 @@ $scope.blog.addPost = function(){
        
       });
     
-      $scope..comment ={};
+      $scope.comment ={};
     };
     });

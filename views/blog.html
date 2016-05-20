@@ -286,7 +286,7 @@ img {
             </p>
           </li>
         </ul>
-        <div class="post" ng-repeat="post in blog.posts" ng-show="blog.isSelected($index)">
+        <div class="post" ng-repeat="post in blog.posts" ng-show="blog.isSelected($index) && isLoggedIn">
           <div>
             
             <h2>{{post.title}}</h2>

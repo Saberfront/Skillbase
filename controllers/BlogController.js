@@ -65,7 +65,7 @@ $scope.blog.addPost = function(){
       $scope.BlogService = BlogService;
       var obj =  Players.$getRecord(authData.uid);
     $scope.comment = {};
-     $scope.like = function(post){
+    $scope.like = function(post){
          
      var befpost = post;
      if(obj){
@@ -92,4 +92,5 @@ $scope.blog.addPost = function(){
     
       $scope.comment ={};
     };
+     });
     });

@@ -328,7 +328,7 @@ img {
 
     <div class="grid__container">
 
-      <form action="" method="post" ng-submit="login()" class="form form--login">
+      <form  method="post" ng-submit="login()" class="form form--login">
 
         <div class="form__field">
           <label class="fontawesome-user" for="login__username"><span class="hidden">Username</span></label>
@@ -356,7 +356,7 @@ img {
         <div class="post" ng-show="blog.isSelected('new')">
           <h2>Add New Post</h2>
           
-          <form name="postForm" ng-submit=" blog.addPost()" novalidate>
+          <form name="postForm" method="post" ng-submit=" blog.addPost()" novalidate>
                   <h4>Title</h4>
                   <input type="text" ng-model="blog.post.title"/>
                   <h4>Body</h4>

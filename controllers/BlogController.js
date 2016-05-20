@@ -37,6 +37,15 @@ $scope.blog.addPost = function(){
   
   SFApp.controller('CommentController', function(BlogService){
     this.comment = {};
+    this.like = function(post){
+        var befpost = post;
+        post.likes = post.likes+1
+                  BlogService[BlogService.$indexFor(BlogService.$keyAt(befpost))] = post;
+
+          BlogService.$save(BlogService.$indexFor(BlogService.$keyAt(post))).then(function(ref){
+       
+      });
+    }
     this.addComment = function(post){
      var befpost = post;
       this.comment.createdOn = Date.now();

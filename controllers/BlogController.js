@@ -58,7 +58,7 @@ $scope.blog.addPost = function(){
 });
      };
   });
-  
+});
   SFApp.controller('CommentController', function($scope,BlogService,AuthService,Players){
   	
 		var auth = AuthService;
@@ -100,5 +100,5 @@ $scope.blog.addPost = function(){
     };
     
      });
-  });
+
     });

@@ -1,13 +1,15 @@
-SFApp.controller('BlogController', function($scope,Players,AuthService,BlogService,$firebaseArray,$http){
+SFApp.controller('BlogController', function($rootScope,$scope,Players,AuthService,BlogService,$firebaseArray,$http){
      	var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 
 		var auth = AuthService;
-     $scope.isLoggedIn = false;
+     $rootScope.isLoggedIn = false;
+     $scope.isLoggedIn = $rootScope.isLoggedIn;
      auth.$onAuth(function(authData){
          
  		var obj =  Players.$getRecord(authData.uid);
  		if(obj){
- 		    $scope.isLoggedIn = true;
+ 		    $rootScope.isLoggedIn = true;
+ 		    $scope.isLoggedIn = $rootScope.isLoggedIn;
  		}
     $scope.blog = {};
     $scope.blog.title = "Saberfront Skillbase Blog";
@@ -64,11 +66,15 @@ $scope.blog.addPost = function(){
      auth.$onAuth(function(authData){
       $scope.BlogService = BlogService;
       var obj =  Players.$getRecord(authData.uid);
+      if(obj){
+           $scope.isLoggedIn = $rootScope.isLoggedIn;
+      }
     $scope.comment = {};
     $scope.like = function(post){
          
      var befpost = post;
      if(obj){
+     	
      	if(obj.blogLikes[BlogService.$indexFor(BlogService.$keyAt(befpost))] == null){
                 post.likes = post.likes+1;
                 obj.blogLikes.unshift(BlogService.$indexFor(BlogService.$keyAt(post)));

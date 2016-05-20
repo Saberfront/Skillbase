@@ -37,7 +37,7 @@ $scope.blog.addPost = function(){
   
   SFApp.controller('CommentController', function(BlogService){
     this.comment = {};
-    this.like = function(post){
+    this.like = function(){
         var befpost = post;
         post.likes = post.likes+1
                   BlogService[BlogService.$indexFor(BlogService.$keyAt(befpost))] = post;

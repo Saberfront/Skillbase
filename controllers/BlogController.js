@@ -59,7 +59,7 @@ $scope.blog.addPost = function(){
      };
   });
 });
-  SFApp.controller('CommentController', function($scope,BlogService,AuthService,Players){
+  SFApp.controller('CommentController', function($rootScope,$scope,BlogService,AuthService,Players){
   	
 		var auth = AuthService;
      $scope.isLoggedIn = false;

@@ -1,5 +1,6 @@
 SFApp.factory("TinyMCEOptionsService",function(){
-  return { selector: 'textarea',
+  return { 
+    selector: 'textarea',
   height: 500,
   theme: 'modern',
   plugins: [

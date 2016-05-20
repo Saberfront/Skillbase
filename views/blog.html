@@ -185,14 +185,7 @@ img {
             </div>
             
             <div class="comments" ng-controller="CommentController as commentCtrl">
-              <button class='pulsebutton' ng-click="function(){
-                post.likes = post.likes+1;
-                  BlogService[BlogService.$indexFor(BlogService.$keyAt(befpost))] = post;
-
-          BlogService.$save(BlogService.$indexFor(BlogService.$keyAt(post))).then(function(ref){
-       
-      });
-              }()">
+              <button class='pulsebutton' ng-click="like()">
   <div class="text">Like +<span id="value">{{post.likes}}</span></div>
   </button>
       

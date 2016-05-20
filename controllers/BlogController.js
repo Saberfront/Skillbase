@@ -92,13 +92,11 @@ $scope.blog.addPost = function(){
   
 
 		var auth = AuthService;
-     $scope.isLoggedIn = false;
+     $scope.isLoggedIn = $rootScope.isLoggedIn;
      auth.$onAuth(function(authData){
       $scope.BlogService = BlogService;
       var obj =  Players.$getRecord(authData.uid);
-      if(obj){
-           $scope.isLoggedIn = $rootScope.isLoggedIn;
-      }
+     
     $scope.comment = {};
     $scope.like = function(post){
          

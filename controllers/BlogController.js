@@ -98,5 +98,6 @@ $scope.blog.addPost = function(){
     
       $scope.comment ={};
     };
+    
      });
     });

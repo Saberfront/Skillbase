@@ -41,7 +41,6 @@ $scope.blog.addPost = function(){
        
        
     };   
-     });
      $scope.login = function(){
      	auth.$authWithPassword({
 	email: $scope.email,
@@ -53,6 +52,7 @@ $scope.blog.addPost = function(){
 		$scope.isLoggedIn = true;
 	console.log(userData);
 	}
+	
 });
      };
   });

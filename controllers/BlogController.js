@@ -77,12 +77,14 @@ $scope.blog.addPost = function(){
      	
      	if(obj.blogLikes[BlogService.$indexFor(BlogService.$keyAt(befpost))] == null){
                 post.likes = post.likes+1;
-                obj.blogLikes.unshift(BlogService.$indexFor(BlogService.$keyAt(post)));
+                obj.blogLikes.unshift(BlogService.$indexFor(BlogService.$keyAt(befpost)));
                   BlogService[BlogService.$indexFor(BlogService.$keyAt(befpost))] = post;
-
-          obj.$save().then(function(ref){
+ BlogService.$save(BlogService.$indexFor(BlogService.$keyAt(post))).then(function(ref){
+       obj.$save().then(function(ref){
        
       });
+      });
+          
      	}
      }
                 

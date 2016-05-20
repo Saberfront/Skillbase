@@ -1,4 +1,4 @@
-SFApp.controller('BlogController', function($rootScope,$scope,Players,AuthService,BlogService,$firebaseArray,$http){
+SFApp.controller('BlogController', function($rootScope,$scope,Players,TinyMCEOptionsService,AuthService,BlogService,$firebaseArray,$http){
      	var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 
 		var auth = AuthService;
@@ -19,11 +19,7 @@ SFApp.controller('BlogController', function($rootScope,$scope,Players,AuthServic
   };
 
 
-  $scope.tinymceOptions = {
-    plugins: 'link image code',
-    toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
-  };
-  
+  $scope.tinymceOptions = TinyMCEOptionsService;
     $scope.blog.title = "Saberfront Skillbase Blog";
     
     $scope.blog.posts = {};

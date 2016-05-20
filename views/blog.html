@@ -309,7 +309,7 @@ img {
                  <cite>- <b>{{comment.author}}</b></cite>
                </li>
               </ul>
-              <form name="commentForm" ng-submit="commentCtrl.addComment(post)" novalidate>
+              <form name="commentForm" ng-submit="commentForm.$valid && commentCtrl.addComment(post)" novalidate>
               
                 
                 <h4>Add Comment</h4>

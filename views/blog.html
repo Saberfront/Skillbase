@@ -270,7 +270,7 @@ img {
             <ul class="post-grid" ng-show="isLoggedIn && blog.isSelected('blog')">
           <li ng-repeat="post in blog.posts" class="col-s-4" ng-class="{ 'reset-s' : $index%3==0 }" ng-click="blog.selectTab($index)" >
             <h3>{{post.title}}</h3>
-            <p>{{post.body | limitTo:70}}...</p>
+            <p bind-compiled-html="post.body | limitTo:70"></p>
             <p class="fa fa-comment push-left"> {{post.comments.length}}
             </p>
             <p class="fa fa-heart push-right"> {{post.likes}}
@@ -283,9 +283,9 @@ img {
             <h2>{{post.title}}</h2>
             <cite>by {{post.author}} on {{post.createdOn | date}}</cite>
             <div class="post-body">
-             <div bind-compiled-html="post.body">
-              
-             </div> 
+             <p bind-compiled-html="post.body">
+               
+             </p> 
             </div>
             
             <div class="comments" ng-controller="CommentController as commentCtrl">
@@ -296,7 +296,7 @@ img {
               <h3>Comments</h3>
               <ul>
                <li ng-repeat="comment in post.comments">
-                 {{comment.body}}
+                 "{{comment.body}}"
                  <cite>- <b>{{comment.author}}</b></cite>
                </li>
               </ul>
@@ -304,7 +304,7 @@ img {
               
                 
                 <h4>Add Comment</h4>
-                  <textarea id="post" ng-model="commentCtrl.comment.body"  cols="30" rows="10" required></textarea>
+                  <textarea id="post" ng-model="commentCtrl.comment.body" cols="30" rows="10" required></textarea>
                 <label for="">by:</label>
                   <input type="text" ng-model="commentCtrl.comment.author" required placeholder="Name"/>
                   
@@ -351,7 +351,7 @@ img {
                   <h4>Title</h4>
                   <input type="text" ng-model="blog.post.title"/>
                   <h4>Body</h4>
-                    <textarea ui-tinymce="tinymceOptions" ng-model="blog.post.body" ></textarea>
+                    <textarea ui-tinymce="tinymceOptions" ng-model="blog.post.body" id="post"></textarea>
     
 
                   <label for="">Featured Image URL</label>

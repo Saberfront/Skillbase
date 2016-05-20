@@ -1,5 +1,11 @@
 SFApp.controller('BlogController', function($scope,BlogService,$firebaseArray,$http){
-    
+     $scope.isLoggedIn = false;
+     auth.$onAuth(function(authData){
+         
+ 		var obj =  Players.$getRecord(authData.uid);
+ 		if(obj){
+ 		    $scope.isLoggedIn = true;
+ 		}
     $scope.blog = {};
     $scope.blog.title = "Saberfront Skillbase Blog";
     
@@ -32,7 +38,7 @@ $scope.blog.addPost = function(){
        
        
     };   
-    
+     });
   });
   
   SFApp.controller('CommentController', function($scope,BlogService){

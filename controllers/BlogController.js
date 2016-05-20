@@ -1,6 +1,14 @@
 SFApp.controller('BlogController', function($rootScope,$scope,Players,AuthService,BlogService,$firebaseArray,$http){
      	var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 
+
+
+    $scope.tinymceOptions = {
+    plugins : 'advlist autolink link image lists charmap print preview',
+    toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code | image',
+     skin: 'lightgray',
+    theme : 'modern'
+  };
 		var auth = AuthService;
      $rootScope.isLoggedIn = false;
      $scope.isLoggedIn = $rootScope.isLoggedIn;
@@ -18,14 +26,6 @@ SFApp.controller('BlogController', function($rootScope,$scope,Players,AuthServic
     console.log('Editor content:', $scope.post.body);
   };
 
-
-
-    $scope.tinymceOptions = {
-    plugins : 'advlist autolink link image lists charmap print preview',
-    toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code | image',
-     skin: 'lightgray',
-    theme : 'modern'
-  };
   
     $scope.blog.title = "Saberfront Skillbase Blog";
     

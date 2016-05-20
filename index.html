@@ -147,6 +147,7 @@ body {
     <script src="lib/lock-7.12.min.js"></script>
     <script src="lib/auth0-angular-4.js"></script>
     <script>
+    tinymce.init({textarea: "#post"});
         var SFApp = angular.module("SaberfrontSkills",["firebase","ngRoute","ngCookies","angular-storage","angular-jwt","auth0"]);
       
  

@@ -360,7 +360,10 @@ img {
                   <h4>Title</h4>
                   <input type="text" ng-model="blog.post.title"/>
                   <h4>Body</h4>
-                  <textarea ng-model="blog.post.body" id="post" ng-list="/\n/" rows="10"></textarea>
+                    <textarea ui-tinymce="tinymceOptions" ng-model="blog.post.body" id="post" ng-list="/\n/" rows="10"></textarea>
+    <button ng-click="getContent()">Get content</button>
+    <button ng-click="setContent()">Set content</button>
+
                   <label for="">Featured Image URL</label>
                   <input type="text" ng-model="blog.post.image" placeholder="http://placekitten.com/g/2000/600" />
                   <label for="">by:</label>

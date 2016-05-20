@@ -1,4 +1,4 @@
-SFApp.controller('BlogController', function($rootScope,$scope,Players,AuthService,BlogService,$firebaseArray,$http){
+SFApp.controller('BlogController', function($rootScope,$scope,TinyMCEService,Players,AuthService,BlogService,$firebaseArray,$http){
      	var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 
 		var auth = AuthService;
@@ -10,6 +10,7 @@ SFApp.controller('BlogController', function($rootScope,$scope,Players,AuthServic
  		if(obj){
  		    $rootScope.isLoggedIn = true;
  		    $scope.isLoggedIn = $rootScope.isLoggedIn;
+ 		    TinyMCEService.init({textarea: "textarea#post"});
  		}
     $scope.blog = {};
     $scope.blog.title = "Saberfront Skillbase Blog";

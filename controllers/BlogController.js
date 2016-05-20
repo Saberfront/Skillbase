@@ -13,15 +13,11 @@ SFApp.controller('BlogController', function($rootScope,$scope,Players,AuthServic
  		    
  		}
     $scope.blog = {};
-    $scope.tinymceModel = 'Initial content';
 
   $scope.getContent = function() {
-    console.log('Editor content:', $scope.tinymceModel);
+    console.log('Editor content:', $scope.post.body);
   };
 
-  $scope.setContent = function() {
-    $scope.tinymceModel = 'Time: ' + (new Date());
-  };
 
   $scope.tinymceOptions = {
     plugins: 'link image code',

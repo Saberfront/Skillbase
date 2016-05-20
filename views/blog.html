@@ -305,7 +305,7 @@ img {
               <h3>Comments</h3>
               <ul>
                <li ng-repeat="comment in post.comments">
-                 "{{comment.body}}"
+                 {{comment.body}}
                  <cite>- <b>{{comment.author}}</b></cite>
                </li>
               </ul>
@@ -313,7 +313,7 @@ img {
               
                 
                 <h4>Add Comment</h4>
-                  <textarea id="post" ng-model="commentCtrl.comment.body" cols="30" rows="10" required></textarea>
+                  <textarea id="post" ng-model="commentCtrl.comment.body" ui-tinymce="tinymceOptions" cols="30" rows="10" required></textarea>
                 <label for="">by:</label>
                   <input type="text" ng-model="commentCtrl.comment.author" required placeholder="Name"/>
                   

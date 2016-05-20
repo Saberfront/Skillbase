@@ -21,7 +21,7 @@ SFApp.controller('BlogController', function($rootScope,$scope,Players,AuthServic
 
 
     $scope.tinymceOptions = {
-    plugins: 'link image code emoticons',
+    plugins : 'advlist autolink link image lists charmap print preview',
     toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code | emoticons'
   };
   

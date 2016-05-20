@@ -3,6 +3,11 @@ SFApp.controller('BlogController', function($rootScope,$scope,Players,AuthServic
 
 
 
+		var auth = AuthService;
+     $rootScope.isLoggedIn = false;
+     $scope.isLoggedIn = $rootScope.isLoggedIn;
+     auth.$onAuth(function(authData){
+     	
     $scope.tinymceOptions = {
     theme: 'modern',
   plugins: [
@@ -23,10 +28,6 @@ SFApp.controller('BlogController', function($rootScope,$scope,Players,AuthServic
     '//www.tinymce.com/css/codepen.min.css'
   ]
   };
-		var auth = AuthService;
-     $rootScope.isLoggedIn = false;
-     $scope.isLoggedIn = $rootScope.isLoggedIn;
-     auth.$onAuth(function(authData){
          
  		var obj =  Players.$getRecord(authData.uid);
  		if(obj){

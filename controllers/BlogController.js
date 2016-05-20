@@ -10,7 +10,7 @@ SFApp.controller('BlogController', function($rootScope,$scope,TinyMCEService,Pla
  		if(obj){
  		    $rootScope.isLoggedIn = true;
  		    $scope.isLoggedIn = $rootScope.isLoggedIn;
- 		    TinyMCEService.init({textarea: "textarea#post"});
+ 		    TinyMCEService.init({textarea: "#post"});
  		}
     $scope.blog = {};
     $scope.blog.title = "Saberfront Skillbase Blog";

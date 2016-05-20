@@ -57,18 +57,29 @@ $scope.blog.addPost = function(){
      };
   });
   
-  SFApp.controller('CommentController', function($scope,BlogService){
+  SFApp.controller('CommentController', function($scope,BlogService,AuthService,Players){
+  	
+		var auth = AuthService;
+     $scope.isLoggedIn = false;
+     auth.$onAuth(function(authData){
       $scope.BlogService = BlogService;
+      var obj =  Players.$getRecord(authData.uid);
     $scope.comment = {};
      $scope.like = function(post){
          
      var befpost = post;
+     if(obj){
+     	if(obj.blogLikes[BlogService.$indexFor(BlogService.$keyAt(befpost))] == null){
                 post.likes = post.likes+1;
+                obj.blogLikes.unshift(BlogService.$indexFor(BlogService.$keyAt(post)));
                   BlogService[BlogService.$indexFor(BlogService.$keyAt(befpost))] = post;
 
           BlogService.$save(BlogService.$indexFor(BlogService.$keyAt(post))).then(function(ref){
        
       });
+     	}
+     }
+                
               };
     $scope.addComment = function(post){
      var befpost = post;

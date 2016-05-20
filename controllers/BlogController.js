@@ -13,6 +13,21 @@ SFApp.controller('BlogController', function($rootScope,$scope,Players,AuthServic
  		    
  		}
     $scope.blog = {};
+    $scope.tinymceModel = 'Initial content';
+
+  $scope.getContent = function() {
+    console.log('Editor content:', $scope.tinymceModel);
+  };
+
+  $scope.setContent = function() {
+    $scope.tinymceModel = 'Time: ' + (new Date());
+  };
+
+  $scope.tinymceOptions = {
+    plugins: 'link image code',
+    toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
+  };
+  
     $scope.blog.title = "Saberfront Skillbase Blog";
     
     $scope.blog.posts = {};

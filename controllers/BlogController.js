@@ -80,7 +80,7 @@ $scope.blog.addPost = function(){
                 obj.blogLikes.unshift(BlogService.$indexFor(BlogService.$keyAt(post)));
                   BlogService[BlogService.$indexFor(BlogService.$keyAt(befpost))] = post;
 
-          BlogService.$save(BlogService.$indexFor(BlogService.$keyAt(post))).then(function(ref){
+          obj.$save().then(function(ref){
        
       });
      	}

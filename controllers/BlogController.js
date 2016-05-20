@@ -100,4 +100,5 @@ $scope.blog.addPost = function(){
     };
     
      });
+  });
     });

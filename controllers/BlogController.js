@@ -42,6 +42,7 @@ SFApp.controller('BlogController', function($rootScope,$scope,Players,AuthServic
     '//www.tinymce.com/css/codepen.min.css'
   ]
   };
+  
     $scope.blog.title = "Saberfront Skillbase Blog";
     
     $scope.blog.posts = {};

@@ -19,6 +19,7 @@ SFApp.controller('BlogController', function($rootScope,$scope,Players,AuthServic
   };
 
 
+
   $scope.tinymceOptions = { 
     selector: 'textarea',
   height: 500,

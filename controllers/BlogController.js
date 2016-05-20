@@ -22,7 +22,9 @@ SFApp.controller('BlogController', function($rootScope,$scope,Players,AuthServic
 
     $scope.tinymceOptions = {
     plugins : 'advlist autolink link image lists charmap print preview',
-    toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code | emoticons'
+    toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code | image',
+     skin: 'lightgray',
+    theme : 'modern'
   };
   
     $scope.blog.title = "Saberfront Skillbase Blog";

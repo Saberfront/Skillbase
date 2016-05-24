@@ -57,12 +57,12 @@ $scope.blog.addPost = function(){
      };
   });
 });
-  SFApp.controller('CommentController', function($scope,BlogService){
+  SFApp.controller('CommentController', function(BlogService){
   	
-      $scope.BlogService = BlogService;
+      this.BlogService = BlogService;
       
-    $scope.comment = {};
-    $scope.like = function(post){
+    this.comment = {};
+    this.like = function(post){
          
      var befpost = post;
      if(obj){
@@ -81,14 +81,14 @@ $scope.blog.addPost = function(){
               };
     $scope.addComment = function(post){
      var befpost = post;
-      $scope.comment.createdOn = Date.now();
+      this.comment.createdOn = Date.now();
       post.comments.unshift($scope.comment);
           BlogService[BlogService.$indexFor(BlogService.$keyAt(befpost))] = post;
       BlogService.$save(BlogService.$indexFor(BlogService.$keyAt(post))).then(function(ref){
        
       });
     
-      $scope.comment ={};
+      this.comment ={};
     };
     
 

@@ -406,17 +406,17 @@ a {
       <div class="messages">
         <h1>Inbox <span class="icon icon-arrow-down"></span></h1>
         <form action="">
-          <input type="search" class="search" placeholder="Search Inbox" />
+          <input type="search" ng-model="query" class="search" placeholder="Search Inbox" />
         </form>
-        <ul class="message-list">
-          <li class="new">
+        <ul class="message-list" ng-repeat="message in messages | filter:query">
+          <li class="" >
             <input type="checkbox" />
             <div class="preview">
-              <h3>Sarach Connor <small>Jul 15</small></h3>
-              <p><strong>I've been hunted - </strong>A crazing robot ...</p>
+              <h3>{{message.sender}}<small></small></h3>
+              <p bind-compiled-html="message.message"></p>
             </div>
           </li>
-          <li class="active">
+          <li class="">
             <input type="checkbox" />
             <div class="preview">
               <h3>Jeremy Clarkson <small>Jul 15</small></h3>

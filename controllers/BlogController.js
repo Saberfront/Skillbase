@@ -2,14 +2,12 @@ SFApp.controller('BlogController', function($rootScope,$scope,Players,AuthServic
      	var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 
 		var auth = AuthService;
-     $rootScope.isLoggedIn = false;
-     $scope.isLoggedIn = $rootScope.isLoggedIn;
+     $scope.isLoggedIn = false;
      auth.$onAuth(function(authData){
          
  		var obj =  Players.$getRecord(authData.uid);
  		if(obj){
- 		    $rootScope.isLoggedIn = true;
- 		    $scope.isLoggedIn = $rootScope.isLoggedIn;
+ 		    $scope.isLoggedIn = true;
  		}
     $scope.blog = {};
     $scope.blog.title = "Saberfront Skillbase Blog";

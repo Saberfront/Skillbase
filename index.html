@@ -205,6 +205,9 @@ SFApp.run(function(auth) {
      
            
     })
+    .when('/messages',{
+      templateUrl: 'views/email.html'
+    })
     .when('/register',{
         controller: 'RegistrationController',
         templateUrl: 'views/register.html'

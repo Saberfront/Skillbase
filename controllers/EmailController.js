@@ -16,6 +16,7 @@ SFApp.controller("EmailController",function($scope){
         sender: "Eureka.com",
         date: "Jul 14",
         message: "Interface design",
+        name: "No Subject"
         text: "Hi Greg ..."
         
      },
@@ -32,6 +33,12 @@ SFApp.controller("EmailController",function($scope){
         name: "Personal resume",
         text: "Hi Greg, as expected .."
         
+     },
+     {
+        sender: "Dribbble",
+        date: "Jul 12",
+        name: " No Subject",
+        text: "Thank you for purchaseing a pro account"
      }
    ];
 

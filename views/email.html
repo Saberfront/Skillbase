@@ -412,29 +412,8 @@ a {
           <li class="" >
             <input type="checkbox" />
             <div class="preview">
-              <h3>{{message.sender}}<small></small></h3>
-              <p bind-compiled-html="message.message"></p>
-            </div>
-          </li>
-          <li class="">
-            <input type="checkbox" />
-            <div class="preview">
-              <h3>Jeremy Clarkson <small>Jul 15</small></h3>
-              <p>The brand new season of Top Gear</p>
-            </div>
-          </li>
-          <li class="">
-            <input type="checkbox" />
-            <div class="preview">
-              <h3>Eureka.com <small>Jul 14</small></h3>
-              <p><strong>Interface design - </strong>Hi Greg ...</p>
-            </div>
-          </li>
-          <li class="">
-            <input type="checkbox" />
-            <div class="preview">
-              <h3>Jeremy Legrand <small>Jul 13</small></h3>
-              <p><strong>CSS Responsive - </strong>Here is my hack to ...</p>
+              <h3>{{message.sender}}<small>{{message.date}}</small></h3>
+              <p>{{message.name}}<strong>{{message.text}}</strong></p>
             </div>
           </li>
           <li class="">

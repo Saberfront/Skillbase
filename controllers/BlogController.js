@@ -59,16 +59,10 @@ $scope.blog.addPost = function(){
      };
   });
 });
-  SFApp.controller('CommentController', function($scope,BlogService,AuthService,Players){
+  SFApp.controller('CommentController', function($scope,BlogService){
   	
-		var auth = AuthService;
-     $scope.isLoggedIn = false;
-     auth.$onAuth(function(authData){
       $scope.BlogService = BlogService;
-      var obj =  Players.$getRecord(authData.uid);
-      if(obj){
-           $scope.isLoggedIn = $rootScope.isLoggedIn;
-      }
+      
     $scope.comment = {};
     $scope.like = function(post){
          
@@ -99,6 +93,6 @@ $scope.blog.addPost = function(){
       $scope.comment ={};
     };
     
-     });
+
 
     });

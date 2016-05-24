@@ -10,20 +10,8 @@ SFApp.controller('BlogController', function($rootScope,$scope,Players,AuthServic
  		if(obj){
  		    $rootScope.isLoggedIn = true;
  		    $scope.isLoggedIn = $rootScope.isLoggedIn;
- 		    
  		}
     $scope.blog = {};
-
-  $scope.getContent = function() {
-    console.log('Editor content:', $scope.post.body);
-  };
-
-
-  $scope.tinymceOptions = {
-    plugins: 'link image code',
-    toolbar: 'undo redo | bold italic | alignleft aligncenter alignright | code'
-  };
-  
     $scope.blog.title = "Saberfront Skillbase Blog";
     
     $scope.blog.posts = {};
@@ -71,47 +59,44 @@ $scope.blog.addPost = function(){
      };
   });
 });
-  SFApp.controller('CommentController', function($rootScope,BlogService,AuthService,Players){
+  SFApp.controller('CommentController', function($scope,BlogService,AuthService,Players){
   	
 		var auth = AuthService;
-     this.isLoggedIn = false;
+     $scope.isLoggedIn = false;
      auth.$onAuth(function(authData){
-      this.BlogService = BlogService;
+      $scope.BlogService = BlogService;
       var obj =  Players.$getRecord(authData.uid);
       if(obj){
-           this.isLoggedIn = $rootScope.isLoggedIn;
+           $scope.isLoggedIn = $rootScope.isLoggedIn;
       }
-    this.comment = {};
-    this.like = function(post){
+    $scope.comment = {};
+    $scope.like = function(post){
          
      var befpost = post;
      if(obj){
      	
      	if(obj.blogLikes[BlogService.$indexFor(BlogService.$keyAt(befpost))] == null){
                 post.likes = post.likes+1;
-                obj.blogLikes.unshift(BlogService.$indexFor(BlogService.$keyAt(befpost)));
+                obj.blogLikes.unshift(BlogService.$indexFor(BlogService.$keyAt(post)));
                   BlogService[BlogService.$indexFor(BlogService.$keyAt(befpost))] = post;
- BlogService.$save(BlogService.$indexFor(BlogService.$keyAt(post))).then(function(ref){
- 	Players[Players.$indexFor(authData.uid)] = obj;
-       Players.$save(Players.$indexFor(authData.uid)).then(function(ref){
+
+          BlogService.$save(BlogService.$indexFor(BlogService.$keyAt(post))).then(function(ref){
        
       });
-      });
-          
      	}
      }
                 
               };
-    this.addComment = function(post){
+    $scope.addComment = function(post){
      var befpost = post;
-      this.comment.createdOn = Date.now();
-      post.comments.unshift(this.comment);
+      $scope.comment.createdOn = Date.now();
+      post.comments.unshift($scope.comment);
           BlogService[BlogService.$indexFor(BlogService.$keyAt(befpost))] = post;
       BlogService.$save(BlogService.$indexFor(BlogService.$keyAt(post))).then(function(ref){
        
       });
     
-      this.comment ={};
+      $scope.comment ={};
     };
     
      });

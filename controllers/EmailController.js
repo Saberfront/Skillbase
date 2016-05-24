@@ -25,6 +25,13 @@ SFApp.controller("EmailController",function($scope){
         message: "CSS Responsive",
         text: "Here is my hack to ..."
 
+     },
+     {
+        sender: "Noe Vella ",
+        date: "Jul 13",
+        name: "Personal resume",
+        text: "Hi Greg, as expected .."
+        
      }
    ];
 

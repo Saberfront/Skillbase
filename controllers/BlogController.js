@@ -71,18 +71,18 @@ $scope.blog.addPost = function(){
      };
   });
 });
-  SFApp.controller('CommentController', function($rootScope,$scope,BlogService,AuthService,Players){
+  SFApp.controller('CommentController', function($rootScope,BlogService,AuthService,Players){
   	
 		var auth = AuthService;
-     $scope.isLoggedIn = false;
+     this.isLoggedIn = false;
      auth.$onAuth(function(authData){
-      $scope.BlogService = BlogService;
+      this.BlogService = BlogService;
       var obj =  Players.$getRecord(authData.uid);
       if(obj){
-           $scope.isLoggedIn = $rootScope.isLoggedIn;
+           this.isLoggedIn = $rootScope.isLoggedIn;
       }
-    $scope.comment = {};
-    $scope.like = function(post){
+    this.comment = {};
+    this.like = function(post){
          
      var befpost = post;
      if(obj){

@@ -79,7 +79,7 @@ $scope.blog.addPost = function(){
      }
                 
               };
-    $scope.addComment = function(post){
+    this.addComment = function(post){
      var befpost = post;
       this.comment.createdOn = Date.now();
       post.comments.unshift($scope.comment);

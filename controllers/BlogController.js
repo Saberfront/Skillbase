@@ -102,16 +102,16 @@ $scope.blog.addPost = function(){
      }
                 
               };
-    $scope.addComment = function(post){
+    this.addComment = function(post){
      var befpost = post;
-      $scope.comment.createdOn = Date.now();
-      post.comments.unshift($scope.comment);
+      this.comment.createdOn = Date.now();
+      post.comments.unshift(this.comment);
           BlogService[BlogService.$indexFor(BlogService.$keyAt(befpost))] = post;
       BlogService.$save(BlogService.$indexFor(BlogService.$keyAt(post))).then(function(ref){
        
       });
     
-      $scope.comment ={};
+      this.comment ={};
     };
     
      });

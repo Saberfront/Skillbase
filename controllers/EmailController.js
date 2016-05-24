@@ -15,8 +15,7 @@ SFApp.controller("EmailController",function($scope){
      {
         sender: "Eureka.com",
         date: "Jul 14",
-        message: "Interface design",
-        name: "No Subject"
+        name: "Interface design",
         text: "Hi Greg ..."
         
      },

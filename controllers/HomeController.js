@@ -1,4 +1,4 @@
-SFApp.Controller("HomeController",function($scope){
+SFApp.controller("HomeController",function($scope){
 
 
 if (window.DeviceMotionEvent) {

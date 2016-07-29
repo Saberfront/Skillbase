@@ -198,6 +198,10 @@ SFApp.run(function(auth) {
   }
       
     }) 
+.when('/',{
+templateUrl: "views/home.html"
+
+})
     .when("/Player/mobile",{
       controller: "PlayerController",
       templateUrl: "views/players-mobile.html"

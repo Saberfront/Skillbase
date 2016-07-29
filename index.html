@@ -199,6 +199,7 @@ SFApp.run(function(auth) {
       
     }) 
 .when('/',{
+controller: "HomeController",
 templateUrl: "views/home.html"
 
 })
@@ -277,6 +278,11 @@ SFApp.directive('jqm', function($timeout) {
     <script src="controllers/PlayerController.js">
     
     </script>
+    <script src="controllers/HomeController.js">
+    
+    </script>
+    
+  
     
     <script src="controllers/SkillsController.js">
     

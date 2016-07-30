@@ -44,6 +44,10 @@
     <h1 ng-if="isWin">You won!</h1>
     <h1 ng-if="isDraw">Draw!</h1>
     <h1 ng-if="isLose">You lost!</h1>
+<a class="twitter-share-button" ng-if="isWin"
+  href="https://twitter.com/intent/tweet?text=I%20Won%20A%20match%20of%20SaberToe!&hashtag=Saberfront"
+  data-size="large">
+Tweet</a>
     <a href class="replay" ng-click="replay('result')">Play again</a>
     <a href class="change" ng-click="start('result')">Change side</a>
   </div>

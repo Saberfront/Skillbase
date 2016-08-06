@@ -15,6 +15,9 @@ $scope.init = function() {
   // Add class active on first li
   ul.children()[0].addClass('active');
 }
+window.onbeforeunload=function(){
+return "Are you sure you don't want to make an account?";
+};
 
 $scope.next = function(target) {
   var input = target.previousElementSibling;;

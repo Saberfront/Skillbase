@@ -5,7 +5,7 @@ SFApp.controller('AdminController',function($scope,$http,auth){
   $('.main').toggleClass('active');
 $http.get("https://www.roblox.com/mobileapi/userinfo",).success(data){
    $('.main').html(data)
-  
+  }
   $(this).toggleClass('active');
 
   if ($('.sidebar').hasClass('active')) {

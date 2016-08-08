@@ -1,4 +1,6 @@
-SFApp.controller("HomeController",function($scope,$sce){
+SFApp.controller("HomeController",function($rootScope,$scope,$sce){
+$scope.isLoggedIn = $rootScope.isLoggedIn;
+
 function detectmob() { 
  if( window.navigator.userAgent.match(/Android/i)
  || navigator.userAgent.match(/webOS/i)

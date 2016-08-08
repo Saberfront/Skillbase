@@ -14,6 +14,6 @@ function detectmob() {
     return false;
   }
 }
-$scope.mobile = detection();
+$scope.mobile = detectmob();
 console.log($scope.mobile)
 });

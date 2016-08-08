@@ -1,4 +1,4 @@
-SFApp.controller("PlayerController",function($scope,AuthService,Players,$firebaseArray,$routeParams){
+SFApp.controller("PlayerController",function($rootScope,$scope,AuthService,Players,$firebaseArray,$routeParams){
 
 		var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 		var auth = AuthService;
@@ -179,7 +179,7 @@ $scope.timeData = {
 };
  $scope.ctx = document.getElementById("timeData").getContext("2d");
  $scope.myLineChart = new Chart($scope.ctx).Line($scope.timeData, {responsive: true});
-
+$rootScope.isLoggedIn = true;
 });
 };
 

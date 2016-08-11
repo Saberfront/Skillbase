@@ -17,5 +17,10 @@ function detectmob() {
   }
 }
 $scope.mobile = detectmob();
+if('serviceWorker' in navigator) {
+  navigator.serviceWorker
+           .register('/sw.js')
+           .then(function() { if($scope.mobile){alert("Service Worker Registered"); }else{console.log("Service Worker Registered");} });
+}
 console.log($scope.mobile)
 });

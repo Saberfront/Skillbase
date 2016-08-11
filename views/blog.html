@@ -260,8 +260,9 @@ img {
         </ul>
         <div class="post" ng-repeat="post in blog.posts" ng-show="blog.isSelected($index) && isLoggedIn">
           <div class="panel panel-primary">
-            
+            <div class="panel-heading">
             <h2 class="panel-title">{{post.title}}</h2>
+</div>
             <cite>by {{post.author}} on {{post.createdOn | date}}</cite>
             <div class="post-body">
              <p ng-repeat="paragraph in post.body">

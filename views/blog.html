@@ -284,7 +284,7 @@ img {
           </li>
         </ul>
         <div class="post" ng-repeat="post in blog.posts" ng-show="blog.isSelected($index) && isLoggedIn">
-          <div>
+          <div class="panel panel-primary">
             
             <h2>{{post.title}}</h2>
             <cite>by {{post.author}} on {{post.createdOn | date}}</cite>

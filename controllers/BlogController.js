@@ -90,7 +90,7 @@ alert(er);
       post.comments.unshift(this.comment);
           BlogService[BlogService.$indexFor(BlogService.$keyAt(befpost))] = post;
       BlogService.$save(BlogService.$indexFor(BlogService.$keyAt(post))).then(function(ref){
-       
+       ref.key === BlogService.$indexFor(BlogService.$keyAt(post));
       });
     
       this.comment ={};

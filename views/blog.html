@@ -248,15 +248,16 @@ img {
             <div class="panel-heading">
             <h2 class="panel-title">{{post.title}}</h2>
 </div>
-<div class="panel-primary">
+<div class="panel-body">
             <cite>by {{post.author}} on {{post.createdOn | date}}</cite>
             <div class="post-body">
              <p ng-repeat="paragraph in post.body">
                {{paragraph}}
              </p> 
             </div>
+</div>
             
-            <div class="comments" ng-controller="CommentController as commentCtrl">
+            <div class="panel-footer comments" ng-controller="CommentController as commentCtrl">
               <button class='btn btn-primary' role="button" ng-click="like(post)">
   <div class="text">Like +<span id="value">{{post.likes}}</span></div>
   </button>
@@ -281,7 +282,7 @@ img {
             </div>
 </div>
         </div>
-      </div>
+    
       <div class="align" ng-show="!isLoggedIn">
 
   <div class="site__container">

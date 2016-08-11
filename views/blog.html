@@ -270,9 +270,9 @@ img {
                </li>
               </ul>
               <form name="commentForm" ng-submit="commentForm.$valid && commentCtrl.addComment(post)" novalidate>
-              
+              <div class="well well-lg"><h4>Add Comment</h4></div>
                 
-                <h4>Add Comment</h4>
+               
                   <textarea id="post" ng-model="commentCtrl.comment.body" cols="30" rows="10" required></textarea>
                 <label for="">by:</label>
                   <input type="text" ng-model="commentCtrl.comment.author" required placeholder="Name"/>

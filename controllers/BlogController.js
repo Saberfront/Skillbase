@@ -1,4 +1,5 @@
 SFApp.controller('BlogController', function($rootScope,$scope,Players,AuthService,BlogService,$firebaseArray,$http){
+try{
      	var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 
 		var auth = AuthService;
@@ -56,6 +57,10 @@ $scope.blog.addPost = function(){
 });
      };
   });
+} catch(er){
+
+console.log(er);
+}
 });
   SFApp.controller('CommentController', function(BlogService){
   	

@@ -63,7 +63,7 @@ alert(er);
 }
 });
   SFApp.controller('CommentController', function(BlogService){
-  	
+  	try{
       this.BlogService = BlogService;
       
     this.comment = {};
@@ -95,7 +95,9 @@ alert(er);
     
       this.comment ={};
     };
-    
+    } catch(er){
+alert(er);
+}
 
 
     });

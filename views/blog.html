@@ -234,13 +234,14 @@ img {
    
           <div class="row">
             <ul class="post-grid" ng-show="isLoggedIn && blog.isSelected('blog')">
-          <li ng-repeat="post in blog.posts" class="col-s-4" ng-class="{ 'reset-s' : $index%3==0 }" ng-click="blog.selectTab($index)" >
+          <li ng-repeat="post in blog.posts" class="col-s-4" ng-class="{ 'reset-s' : $index%3==0 }" ng-click="blog.selectTab($index)" ><div class ="jumbotron">
             <h3>{{post.title}}</h3>
             <p>{{post.body[0] | limitTo:70}}...</p>
             <p class="fa fa-comment push-left"> {{post.comments.length}}
             </p>
             <p class="fa fa-heart push-right"> {{post.likes}}
             </p>
+</div>
           </li>
         </ul>
         <div class="post" ng-repeat="post in blog.posts" ng-show="blog.isSelected($index) && isLoggedIn">

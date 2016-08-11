@@ -59,7 +59,7 @@ $scope.blog.addPost = function(){
   });
 } catch(er){
 
-console.log(er);
+alert(er);
 }
 });
   SFApp.controller('CommentController', function(BlogService){

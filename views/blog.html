@@ -241,6 +241,7 @@ img {
   max-width: 100%;
 }
 </style>
+<div class="container-fluid">
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -357,7 +358,7 @@ img {
   </div>
 
 </div>
-        <div class="post" ng-show="blog.isSelected('new')">
+        <div class="form-group post" ng-show="blog.isSelected('new')">
           <h2>Add New Post</h2>
           
           <form name="postForm" ng-submit=" blog.addPost()" novalidate>
@@ -379,3 +380,4 @@ img {
         </div> 
         
     </div>
+</div>

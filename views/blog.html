@@ -263,8 +263,8 @@ img {
   </button>
       
               <h3>Comments</h3>
-              <ul>
-               <li ng-repeat="comment in post.comments">
+              <ul class="list-group" ng-repeat="comment in post.comments">
+               <li class="list-group-item">
                  "{{comment.body}}"
                  <cite>- <b>{{comment.author}}</b></cite>
                </li>

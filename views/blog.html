@@ -222,7 +222,13 @@ img {
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <input type="search" class="form-control" ng-model="searchText"/>
+      
+
+ <ol class="breadcrumb">
+  <li><a href="#">{{blog.title}}</a></li>
+  <li><a href="#">Library</a></li>
+  <li class="active">Data</li>
+</ol>
       <ul class="nav nav-pills">
         <li><a ng-click="blog.selectTab('blog')">See All Posts</a></li> 
                   <li><a ng-click="blog.selectTab('new')">Add New Post</a></li>
@@ -234,11 +240,6 @@ img {
 </nav>
  
         
- <ol class="breadcrumb">
-  <li><a href="#">{{blog.title}}</a></li>
-  <li><a href="#">Library</a></li>
-  <li class="active">Data</li>
-</ol>
          
    
           <div class="row">

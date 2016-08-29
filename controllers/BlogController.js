@@ -3,7 +3,7 @@ try{
      	var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 
 		var auth = AuthService;
-     $scope.isLoggedIn = false;
+     $scope.isLoggedIn = $rootScope.isLoggedIn;
      auth.$onAuth(function(authData){
          
  		var obj =  Players.$getRecord(authData.uid);

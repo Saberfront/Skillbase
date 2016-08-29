@@ -2,7 +2,7 @@ SFApp.controller('AdminController',function($scope,$http,auth){
   $scope.auth = auth;
 
 
-$http.get("https://www.roblox.com/mobileapi/userinfo",).success(function(data){
+$http.get("https://www.roblox.com/mobileapi/userinfo").success(function(data){
    $('.main').html(data)
   });
   $('#menu-action').click(function() {

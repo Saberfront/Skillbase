@@ -1,5 +1,4 @@
-SFApp.controller('BlogController', function($rootScope,$scope,Players,AuthService,BlogService,$firebaseArray,$http){
-try{SFApp.controller('BlogController', function($rootScope,$scope,Players,AuthService,BlogService,$firebaseArray,$http){
+SFApp.controller('BlogController', function($rootScope,$scope,Players,AuthService,BlogService,$firebaseArray,
 try{
      	var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 
@@ -19,7 +18,7 @@ try{
       $scope.blog.posts = BlogService;
 
     
-    $scope.blog.tab = 'blog';
+    $scope.blosg.tab = 'blog';
     
     $scope.blog.selectTab = function(setTab){
       $scope.blog.tab = setTab;

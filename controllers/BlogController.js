@@ -28,18 +28,6 @@ try{
     $scope.blog.isSelected = function(checkTab){
       return $scope.blog.tab === checkTab;
     };
-    window.addEventListener('load', function () {
-  // At first, let's check if we have permission for notification
-  // If not, let's ask for it
-  if (window.Notification && Notification.permission !== "granted") {
-    Notification.requestPermission(function (status) {
-      if (Notification.permission !== status) {
-        Notification.permission = status;
-      }
-    });
-  }
-
-});
     $scope.blog.post = {};
 $scope.blog.addPost = function(){
       $scope.blog.post.createdOn = Date.now();
@@ -68,6 +56,20 @@ $scope.blog.addPost = function(){
 });
      };
   });
+
+
+    window.addEventListener('load', function () {
+  // At first, let's check if we have permission for notification
+  // If not, let's ask for it
+  if (window.Notification && Notification.permission !== "granted") {
+    Notification.requestPermission(function (status) {
+      if (Notification.permission !== status) {
+        Notification.permission = status;
+      }
+    });
+  }
+
+});
 } catch(er){
 
 alert(er);

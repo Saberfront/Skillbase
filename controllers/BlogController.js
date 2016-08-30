@@ -39,7 +39,7 @@ try{
     });
   }
 
-
+});
     $scope.blog.post = {};
 $scope.blog.addPost = function(){
       $scope.blog.post.createdOn = Date.now();

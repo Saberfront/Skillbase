@@ -162,6 +162,19 @@ body {
     <script src="lib/tinymce.min.js"></script>
 <script src="lib/tinymce-reg.min.js"></script>
     <script>
+    window.addEventListener('load', function () {
+  // At first, let's check if we have permission for notification
+  // If not, let's ask for it
+  if (window.Notification && Notification.permission !== "granted") {
+    Notification.requestPermission(function (status) {
+      if (Notification.permission !== status) {
+        Notification.permission = status;
+      }
+    });
+  }
+
+});
+
         var SFApp = angular.module("SaberfrontSkills",["firebase","ngRoute","ngCookies","angular-storage","angular-jwt","auth0","ui.tinymce"]);
       
  

@@ -1,9 +1,9 @@
-SFApp.controller('BlogController', function($rootScope,$scope,Players,AuthService,BlogService,$firebaseArray,
+SFApp.controller('BlogController', function($rootScope,$scope,Players,AuthService,BlogService,$firebaseArray,$http){
 try{
      	var ref = new Firebase("saberfront-skillbase.firebaseio.com");
 
 		var auth = AuthService;
-     $scope.isLoggedIn = $rootScope.isLoggedIn;
+     $scope.isLoggedIn = false;
      auth.$onAuth(function(authData){
          
  		var obj =  Players.$getRecord(authData.uid);
@@ -18,7 +18,7 @@ try{
       $scope.blog.posts = BlogService;
 
     
-    $scope.blosg.tab = 'blog';
+    $scope.blog.tab = 'blog';
     
     $scope.blog.selectTab = function(setTab){
       $scope.blog.tab = setTab;

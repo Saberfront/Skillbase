@@ -274,9 +274,10 @@ img {
                <li class="list-group-item">
                  "{{comment.body}}"
                  <cite>- <b>{{comment.author}}</b></cite>
-               </li>
+               
+                </li>
               </ul>
-              <button ng-share="facebook,twitter,google,pinterest,linkedin">Share</button>
+              <g:plus action="share"></g:plus>              
               <form name="commentForm" ng-submit="commentForm.$valid && commentCtrl.addComment(post)" >
               <div class="well well-lg"><h4>Add Comment</h4></div>
                 
